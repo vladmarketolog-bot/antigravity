@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity | Личный Кабинет</title>
+    <!-- Auth Check -->
+    <script>
+        if (!localStorage.getItem('ag_auth')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <script src="../assets/js/tailwindcss.js"></script>
+    <link href="../assets/css/fontawesome.css" rel="stylesheet">
+    <link href="../assets/css/google-fonts.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link href="cabinet.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0C10',
+                            accent: '#66FCF1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+
+    <!-- Top Bar -->
+    <nav class="border-b border-white/10 bg-[#0B0C10]/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-cube text-brand-accent text-xl"></i>
+                <span class="font-display font-bold tracking-wider">ANTIGRAVITY <span
+                        class="text-xs bg-white/10 px-2 py-0.5 rounded text-gray-400 ml-2">MEMBER AREA</span></span>
+            </div>
+            <button onclick="logout()" class="text-sm text-gray-500 hover:text-white transition">
+                <i class="fa-solid fa-arrow-right-from-bracket mr-2"></i> Выход
+            </button>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-12">
+        <div class="flex items-center mb-12">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-accent to-blue-600 p-[2px]">
+                <div class="w-full h-full bg-[#0B0C10] rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-user-astronaut text-brand-accent text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <h1 class="text-2xl font-bold font-display">Добро пожаловать в Клуб</h1>
+                <p class="text-gray-400 text-sm">Ваш статус: <span class="text-brand-accent">Резидент</span></p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Card 1: Prompts -->
+            <a href="library.html"
+                class="glass-card p-8 rounded-2xl group hover:border-brand-accent/50 transition duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition">
+                    <i class="fa-solid fa-arrow-right -rotate-45 text-brand-accent"></i>
+                </div>
+                <div
+                    class="w-14 h-14 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition">
+                    <i class="fa-solid fa-terminal"></i>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Библиотека Сис. Промптов</h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Коллекция моих личных инструкций для Google Gemini, Antigravity и Nano Banana.
+                    <span class="block mt-2 text-white/50 text-xs">Обновлено: Сегодня</span>
+                </p>
+            </a>
+
+            <!-- Card 2: Knowledge Base -->
+            <a href="knowledge.html"
+                class="glass-card p-8 rounded-2xl group hover:border-brand-accent/50 transition duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition">
+                    <i class="fa-solid fa-arrow-right -rotate-45 text-brand-accent"></i>
+                </div>
+                <div
+                    class="w-14 h-14 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition">
+                    <i class="fa-solid fa-book-journal-whills"></i>
+                </div>
+                <h2 class="text-xl font-bold mb-2">База Знаний</h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Архитектурные схемы, гайды по интеграциям API, шаблоны баз данных и плейбуки.
+                </p>
+            </a>
+
+            <!-- Card 3: Academy (New) -->
+            <a href="course.html"
+                class="glass-card p-8 rounded-2xl group hover:border-brand-accent/50 transition duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition">
+                    <i class="fa-solid fa-arrow-right -rotate-45 text-brand-accent"></i>
+                </div>
+                <div
+                    class="w-14 h-14 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Курс "Start"</h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Пошаговое обучение с 0. От регистрации в Google Antigravity до запуска Агента.
+                </p>
+            </a>
+
+            <!-- Card 3: Telegram (External) -->
+            <a href="https://t.me/+7999999999" target="_blank"
+                class="glass-card p-8 rounded-2xl group hover:border-brand-accent/50 transition duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition">
+                    <i class="fa-solid fa-external-link-alt -rotate-45 text-brand-accent"></i>
+                </div>
+                <div
+                    class="w-14 h-14 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition">
+                    <i class="fa-brands fa-telegram"></i>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Чат Резидентов</h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Доступ в закрытый канал, где проходят Live-стримы и анонсы разборов.
+                </p>
+            </a>
+
+            <!-- Card 4: Streams (New) -->
+            <a href="streams.html"
+                class="glass-card p-8 rounded-2xl group hover:border-brand-accent/50 transition duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition">
+                    <i class="fa-solid fa-arrow-right -rotate-45 text-brand-accent"></i>
+                </div>
+                <div
+                    class="w-14 h-14 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Записи Стримов</h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Архив прямых эфиров: разборы проектов, Live-coding сессии и Q&A.
+                </p>
+            </a>
+
+            <!-- Card 5: Setup (New) -->
+            <a href="setup.html"
+                class="glass-card p-8 rounded-2xl group hover:border-brand-accent/50 transition duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition">
+                    <i class="fa-solid fa-arrow-right -rotate-45 text-brand-accent"></i>
+                </div>
+                <div
+                    class="w-14 h-14 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition">
+                    <i class="fa-solid fa-unlock-keyhole"></i>
+                </div>
+                <h2 class="text-xl font-bold mb-2">Доступ из России</h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Пошаговая инструкция: как купить и настроить Gemini, Antigravity и Nano Banana без VPN-мучений.
+                </p>
+            </a>
+
+        </div>
+
+        <!-- Latest Updates Section -->
+        <div class="mt-12">
+            <h3 class="font-bold text-gray-500 uppercase tracking-widest text-xs mb-6">Последние обновления</h3>
+            <div class="glass-card rounded-xl overflow-hidden">
+                <div class="p-4 border-b border-white/5 flex items-center hover:bg-white/5 transition cursor-pointer"
+                    onclick="window.location.href='library.html'">
+                    <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-1 rounded mr-4">VIBE</span>
+                    <span class="text-white text-sm font-medium flex-grow">Добавлен раздел "Vibecoding" (20 промптов для
+                        кодинга)</span>
+                    <span class="text-gray-600 text-xs">Только что</span>
+                </div>
+                <div class="p-4 border-b border-white/5 flex items-center hover:bg-white/5 transition cursor-pointer"
+                    onclick="window.location.href='setup.html'">
+                    <span class="text-xs font-mono text-green-400 bg-green-500/10 px-2 py-1 rounded mr-4">NEW</span>
+                    <span class="text-white text-sm font-medium flex-grow">Гайд: Доступ к Gemini и Nano Banana из
+                        РФ</span>
+                    <span class="text-gray-600 text-xs">Сегодня</span>
+                </div>
+                <div class="p-4 flex items-center hover:bg-white/5 transition cursor-pointer"
+                    onclick="window.location.href='streams.html'">
+                    <span class="text-xs font-mono text-red-400 bg-red-500/10 px-2 py-1 rounded mr-4">STREAMS</span>
+                    <span class="text-white text-sm font-medium flex-grow">Добавлен архив стримов (3 записи)</span>
+                    <span class="text-gray-600 text-xs">Вчера</span>
+                </div>
+                <div class="p-4 border-b border-white/5 flex items-center hover:bg-white/5 transition cursor-pointer"
+                    onclick="window.location.href='knowledge.html'">
+                    <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-1 rounded mr-4">UPDATE</span>
+                    <span class="text-white text-sm font-medium flex-grow">Обновлен гайд по Cursor IDE (версия
+                        0.45)</span>
+                    <span class="text-gray-600 text-xs">Вчера</span>
+                </div>
+                <div class="p-4 flex items-center hover:bg-white/5 transition cursor-pointer">
+                    <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-1 rounded mr-4">EVENT</span>
+                    <span class="text-white text-sm font-medium flex-grow">Запись стрима: "Клон Airbnb за 3 часа"</span>
+                    <span class="text-gray-600 text-xs">3 дня назад</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function logout() {
+            localStorage.removeItem('ag_auth');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+
+</html>

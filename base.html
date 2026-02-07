@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Lab | База Знаний</title>
+    <script src="assets/js/tailwindcss.js"></script>
+    <link href="assets/css/fontawesome.css" rel="stylesheet">
+    <link href="assets/css/google-fonts.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0C10',
+                            gray: '#1F2833',
+                            accent: '#66FCF1',
+                            muted: '#45A29E',
+                            blue: '#4169E1'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .blue-text {
+            background: linear-gradient(to right, #4169E1, #00BFFF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .search-glow:focus-within {
+            box-shadow: 0 0 30px rgba(65, 105, 225, 0.2);
+            border-color: rgba(65, 105, 225, 0.5);
+        }
+
+        /* Modal Animation */
+        .modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0B0C10;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4169E1;
+            border-radius: 4px;
+        }
+    </style>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+            (function (m, e, t, r, i, k, a) {
+                m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+                m[i].l = 1 * new Date();
+                for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+            })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=106463224', 'ym');
+
+        ym(106463224, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/106463224" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+
+<body class="antialiased font-sans">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-card border-b border-white/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fa-solid fa-cube text-brand-accent text-2xl"></i>
+                <span class="font-display font-bold text-xl tracking-wider">ANTIGRAVITY <span
+                        class="text-brand-muted">LAB</span></span>
+            </a>
+            <a href="join.html"
+                class="bg-brand-accent text-brand-dark px-6 py-2 rounded-full font-bold hover:bg-white transition">
+                В Клуб
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero: Search -->
+    <section class="pt-32 pb-12 relative">
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h1 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                База Знаний <span class="blue-text">Antigravity</span>
+            </h1>
+            <p class="text-gray-400 mb-10 max-w-2xl mx-auto">
+                Энциклопедия нового мира. Здесь собраны инструкции, архитектурные решения и плейбуки, которые приносят
+                деньги.
+            </p>
+
+
+        </div>
+    </section>
+
+    <!-- Knowledge Grid -->
+    <section class="py-12 bg-[#08090C]">
+        <div class="container mx-auto px-6 max-w-5xl">
+
+            <!-- Section: Getting Started (Free) -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fa-solid fa-flag-checkered text-green-500 mr-3"></i> Старт (Открытые материалы)
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Card 1: Cursor -->
+                    <div
+                        class="glass-card p-6 rounded-xl border border-white/10 hover:border-green-500/50 transition duration-300">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono text-green-400 bg-green-500/10 px-2 py-1 rounded">FREE</span>
+                            <span class="text-xs text-gray-500">5 мин</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3">Установка IDE Cursor</h3>
+                        <p class="text-sm text-gray-400 mb-6">Полный гайд по настройке среды разработки для работы с AI.
+                            Как начать кодить без знания кода.</p>
+                        <button onclick="openModal('cursor')"
+                            class="w-full bg-white/5 hover:bg-green-500/20 text-white hover:text-green-400 py-3 rounded-lg font-bold transition flex items-center justify-center">
+                            Читать статью <i class="fa-solid fa-book-open ml-2"></i>
+                        </button>
+                    </div>
+                    <!-- Card 2: Glossary -->
+                    <div
+                        class="glass-card p-6 rounded-xl border border-white/10 hover:border-green-500/50 transition duration-300">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono text-green-400 bg-green-500/10 px-2 py-1 rounded">FREE</span>
+                            <span class="text-xs text-gray-500">10 мин</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3">Глоссарий AI 2026</h3>
+                        <p class="text-sm text-gray-400 mb-6">Что такое Agents, RAG, Text-to-SQL и почему это важно.
+                            Словарь терминов для новичков.</p>
+                        <button onclick="openModal('glossary')"
+                            class="w-full bg-white/5 hover:bg-green-500/20 text-white hover:text-green-400 py-3 rounded-lg font-bold transition flex items-center justify-center">
+                            Читать статью <i class="fa-solid fa-book-open ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Advanced Architecture (Locked) -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center opacity-75">
+                    <i class="fa-solid fa-lock text-gray-500 mr-3"></i> Закрытые материалы
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-75">
+                    <!-- Card 3 (Locked) -->
+                    <div class="glass-card p-6 rounded-xl border border-white/10 relative overflow-hidden group">
+                        <div
+                            class="absolute inset-0 bg-black/60 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                            <i class="fa-solid fa-lock text-3xl text-brand-accent mb-2"></i>
+                            <span class="font-bold text-white mb-2">Доступно участникам</span>
+                            <a href="join.html"
+                                class="bg-brand-accent text-brand-dark px-4 py-2 rounded-full text-xs font-bold">Открыть
+                                доступ</a>
+                        </div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span
+                                class="text-xs font-mono text-brand-blue bg-brand-blue/10 px-2 py-1 rounded">LOCKED</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Клон Uber: База Данных</h3>
+                        <p class="text-sm text-gray-400 mb-4 blur-[3px]">Готовая схема базы данных для такси. Как
+                            хранить водителей...</p>
+                        <div class="h-4 w-24 bg-gray-700 rounded blur-[3px]"></div>
+                    </div>
+
+                    <!-- Card 4 (Locked) -->
+                    <div class="glass-card p-6 rounded-xl border border-white/10 relative overflow-hidden group">
+                        <div
+                            class="absolute inset-0 bg-black/60 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                            <i class="fa-solid fa-lock text-3xl text-brand-accent mb-2"></i>
+                            <span class="font-bold text-white mb-2">Доступно участникам</span>
+                            <a href="join.html"
+                                class="bg-brand-accent text-brand-dark px-4 py-2 rounded-full text-xs font-bold">Открыть
+                                доступ</a>
+                        </div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span
+                                class="text-xs font-mono text-brand-blue bg-brand-blue/10 px-2 py-1 rounded">LOCKED</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Оплата без Бэкенда</h3>
+                        <p class="text-sm text-gray-400 mb-4 blur-[3px]">Как принимать деньги на сайте
+                            (Stripe/Prodamus)...</p>
+                        <div class="h-4 w-24 bg-gray-700 rounded blur-[3px]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Container -->
+    <div id="articleModal" class="modal fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
+
+        <!-- Modal Content -->
+        <div
+            class="modal-content glass-card w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl relative bg-[#0b0c10] border border-white/10 shadow-2xl">
+            <!-- Close Button -->
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white transition z-10 p-2 bg-black/50 rounded-full">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- Content Area (Dynamic) -->
+            <div id="modalBody" class="p-8 md:p-12">
+                <!-- Content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#050505] pt-20 pb-10 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4 md:mb-0 relative">
+                        <i class="fa-solid fa-cube text-brand-accent text-2xl"></i>
+                        <span class="font-display font-bold text-xl tracking-wider text-white">ANTIGRAVITY <span
+                                class="text-brand-muted">LAB</span></span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6 max-w-sm">
+                        Строим будущее без кода. Я объединяю AI-технологии и предпринимательское мышление, чтобы
+                        создавать продукты за часы, а не месяцы.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://t.me/vladmarketolog" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-accent hover:text-brand-dark transition duration-300">
+                            <i class="fa-brands fa-telegram"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Column 2: Product -->
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-wider">Кому полезно</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="predprinimatel.html" class="hover:text-brand-accent transition">Для
+                                Предпринимателей</a></li>
+                        <li><a href="marketolog.html" class="hover:text-brand-accent transition">Для Маркетологов</a>
+                        </li>
+                        <li><a href="human.html" class="hover:text-brand-accent transition">Хочу создавать сайты</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- Column 3: Resources -->
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-wider">Ресурсы</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="prompts.html" class="hover:text-brand-accent transition">Библиотека промптов</a>
+                        </li>
+                        <li><a href="base.html" class="hover:text-brand-accent transition">База знаний</a></li>
+                        <li><a href="ai.html" class="hover:text-brand-accent transition">AI-инструменты 2026</a></li>
+                        <li><a href="cabinet/login.html"
+                                class="text-brand-accent hover:text-white transition font-bold"><i
+                                    class="fa-solid fa-lock mr-2"></i>Личный Кабинет</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Legal -->
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-wider">Документы</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="offer.html" class="hover:text-brand-accent transition">Публичная оферта</a></li>
+                        <li><a href="privacy.html" class="hover:text-brand-accent transition">Политика
+                                конфиденциальности</a></li>
+                        <li><a href="consent.html" class="hover:text-brand-accent transition">Согласие на рассылку</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div
+                class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
+                <div class="mb-4 md:mb-0">
+                    &copy; 2026 Antigravity Lab. Все права защищены.
+                </div>
+                <div class="flex items-center space-x-1">
+                    <span>Designed by</span>
+                    <i class="fa-solid fa-robot text-brand-accent mx-1"></i>
+                    <span class="text-gray-400">Artificial Intelligence</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const articles = {
+            'cursor': `
+                <div class="prose prose-invert max-w-none">
+                    <h1 class="font-display text-4xl font-bold mb-6 text-white">Установка и настройка <span class="text-brand-accent">IDE Cursor</span></h1>
+                    <div class="bg-blue-500/10 border-l-4 border-blue-500 p-4 mb-8 text-blue-300">
+                        <strong>Важно:</strong> Cursor — это форк VS Code. Если вы умеете пользоваться VS Code, вы умеете пользоваться Cursor.
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold text-white mb-4">Шаг 1. Скачивание</h2>
+                    <p class="text-gray-300 mb-6">Перейдите на официальный сайт <span class="text-brand-accent">cursor.sh</span> и скачайте версию для вашей ОС (Windows/Mac).</p>
+                    
+                    <h2 class="text-2xl font-bold text-white mb-4">Шаг 2. Импорт настроек</h2>
+                    <p class="text-gray-300 mb-6">При первом запуске Cursor спросит: "Import extensions from VS Code?". Нажмите <strong>YES</strong>. Это перенесет все ваши плагины, темы и горячие клавиши.</p>
+                    
+                    <h2 class="text-2xl font-bold text-white mb-4">Шаг 3. Авторизация AI</h2>
+                    <ol class="list-decimal list-inside text-gray-300 space-y-2 mb-8">
+                        <li>Нажмите <code class="bg-gray-800 px-2 py-1 rounded">Ctrl + Shift + J</code> (или Cmd + Shift + J на Mac).</li>
+                        <li>Откроется панель Antigravity AI (справа).</li>
+                        <li>Залогиньтесь через GitHub или Google.</li>
+                        <li>Выберите модель <strong>Claude 3.5 Sonnet</strong> (она лучше всего пишет код).</li>
+                    </ol>
+
+                    <h2 class="text-2xl font-bold text-white mb-4">Первые хоткеи</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <span class="text-brand-accent font-bold block mb-1">Ctrl + K</span>
+                            <span class="text-sm text-gray-400">Генерация кода в текущем месте</span>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <span class="text-brand-accent font-bold block mb-1">Ctrl + L</span>
+                            <span class="text-sm text-gray-400">Чат с контекстом всего проекта</span>
+                        </div>
+                    </div>
+                </div>
+            `,
+            'glossary': `
+                 <div class="prose prose-invert max-w-none">
+                    <h1 class="font-display text-4xl font-bold mb-6 text-white">Глоссарий AI 2026</h1>
+                    <p class="text-xl text-gray-400 mb-8">Словарь терминов, чтобы не чувствовать себя динозавром на стримах.</p>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-accent mb-2">LLM (Large Language Model)</h3>
+                            <p class="text-gray-300">"Большая Языковая Модель". Общее название для нейросетей типа GPT-4, Claude, Llama. Это "мозг", который обрабатывает текст.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-accent mb-2">Agent (Агент)</h3>
+                            <p class="text-gray-300">AI, который может не просто отвечать на вопросы, а <strong>выполнять действия</strong>. Например: зайти в интернет, найти почту клиента, отправить письмо и записать результат в таблицу.</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-accent mb-2">RAG (Retrieval-Augmented Generation)</h3>
+                            <p class="text-gray-300">Способ "скормить" нейросети ваши личные данные. Например, загрузить в неё PDF с инструкциями вашей компании, чтобы она отвечала строго по ним, а не выдумывала.</p>
+                        </div>
+
+                         <div>
+                            <h3 class="text-xl font-bold text-brand-accent mb-2">Zero-Shot / Few-Shot</h3>
+                            <p class="text-gray-300">Методы промптинга. <br>
+                            <strong>Zero-Shot:</strong> "Напиши письмо". <br>
+                            <strong>Few-Shot:</strong> "Вот 3 примера моих лучших писем. Напиши четвертое в таком же стиле". (Дает результат в 10 раз лучше).</p>
+                        </div>
+                    </div>
+                </div>
+            `
+        };
+
+        function openModal(articleId) {
+            const modal = document.getElementById('articleModal');
+            const body = document.getElementById('modalBody');
+
+            if (articles[articleId]) {
+                body.innerHTML = articles[articleId];
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Disable scroll
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('articleModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Enable scroll
+        }
+
+        // Close on Esc
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

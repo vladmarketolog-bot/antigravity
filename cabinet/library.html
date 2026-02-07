@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity | Библиотека Промптов</title>
+    <!-- Auth Check -->
+    <script>
+        if (!localStorage.getItem('ag_auth')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <script src="../assets/js/tailwindcss.js"></script>
+    <link href="../assets/css/fontawesome.css" rel="stylesheet">
+    <link href="../assets/css/google-fonts.css" rel="stylesheet">
+    <link href="cabinet.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0C10',
+                            accent: '#66FCF1',
+                            muted: '#45A29E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="border-b border-white/10 bg-[#0B0C10]/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-gray-400 hover:text-white transition">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span class="text-sm font-bold">Назад в Кабинет</span>
+            </a>
+            <div class="flex items-center space-x-3">
+                <span class="font-display font-bold tracking-wider">ANTIGRAVITY <span
+                        class="text-brand-accent">LIBRARY</span></span>
+            </div>
+            <div class="w-20"></div> <!-- Spacer for alignment -->
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-12">
+        <!-- Search & Filter Section -->
+        <div class="mb-12">
+            <h1 class="text-3xl font-display font-bold mb-6">Системные Промпты</h1>
+
+            <div class="flex flex-col md:flex-row gap-4 mb-6">
+                <!-- Search Input -->
+                <div class="relative flex-grow">
+                    <i class="fa-solid fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                    <input type="text" id="searchInput" placeholder="Поиск по названию или тегу..."
+                        class="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-brand-accent/50 transition">
+                </div>
+            </div>
+
+            <!-- Tag Cloud -->
+            <div class="flex flex-wrap gap-2" id="tagCloud">
+                <!-- Tags rendered by JS -->
+            </div>
+        </div>
+
+        <!-- Container for Content -->
+        <div id="app-container">
+            <!-- Rendered by JS -->
+        </div>
+    </div>
+
+    <!-- Load Data -->
+    <script src="prompts_db.js"></script>
+
+    <script>
+        // State
+        let activeTag = null;
+        let searchQuery = '';
+
+        // DOM Elements
+        const container = document.getElementById('app-container');
+        const searchInput = document.getElementById('searchInput');
+        const tagCloud = document.getElementById('tagCloud');
+
+        // Categories Map
+        const CATEGORIES = {
+            'business': { title: 'Бизнес и Продажи', icon: 'fa-briefcase' },
+            'vibecoding': { title: 'Vibecoding (AI-Разработка)', icon: 'fa-wand-magic-sparkles' },
+            'coding': { title: 'Классический Код', icon: 'fa-code' },
+            'marketing': { title: 'Маркетинг и Контент', icon: 'fa-bullhorn' },
+            'life': { title: 'Жизнь и Продуктивность', icon: 'fa-heart' }
+        };
+
+        // Initialize
+        function init() {
+            renderTags();
+            renderLibrary();
+
+            // Event Listeners
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase();
+                renderLibrary();
+            });
+        }
+
+        // Render Tags
+        function renderTags() {
+            // Collect all unique tags
+            const allTags = new Set();
+            PROMPTS_DB.forEach(p => p.tags.forEach(t => allTags.add(t)));
+
+            let html = `<button onclick="toggleTag(null)" class="text-xs font-bold px-3 py-1.5 rounded-lg border transition ${activeTag === null ? 'bg-brand-accent text-black border-brand-accent' : 'bg-white/5 text-gray-400 border-white/5 hover:border-white/20'}">Все</button>`;
+
+            Array.from(allTags).sort().forEach(tag => {
+                const isActive = activeTag === tag;
+                html += `
+                    <button onclick="toggleTag('${tag}')" 
+                        class="text-xs font-bold px-3 py-1.5 rounded-lg border transition ${isActive ? 'bg-brand-accent text-black border-brand-accent' : 'bg-white/5 text-gray-400 border-white/5 hover:border-white/20'}">
+                        #${tag}
+                    </button>
+                `;
+            });
+            tagCloud.innerHTML = html;
+        }
+
+        // Toggle Tag Filter
+        function toggleTag(tag) {
+            activeTag = (activeTag === tag) ? null : tag;
+            renderTags(); // Re-render to update active state
+            renderLibrary();
+        }
+
+        // Render Library
+        function renderLibrary() {
+            let html = '';
+
+            // Filter prompts
+            const filteredPrompts = PROMPTS_DB.filter(p => {
+                const matchesSearch = p.title.toLowerCase().includes(searchQuery) ||
+                    p.content.toLowerCase().includes(searchQuery) ||
+                    p.tags.some(t => t.toLowerCase().includes(searchQuery));
+                const matchesTag = activeTag ? p.tags.includes(activeTag) : true;
+                return matchesSearch && matchesTag;
+            });
+
+            if (filteredPrompts.length === 0) {
+                container.innerHTML = `<div class="text-center py-12 text-gray-500">Ничего не найдено ¯\\_(ツ)_/¯</div>`;
+                return;
+            }
+
+            // Group prompts by category
+            const grouped = {};
+            filteredPrompts.forEach(p => {
+                if (!grouped[p.category]) grouped[p.category] = [];
+                grouped[p.category].push(p);
+            });
+
+            // Render sections
+            for (const [catKey, prompts] of Object.entries(grouped)) {
+                const catMeta = CATEGORIES[catKey] || { title: 'Другое', icon: 'fa-folder' };
+
+                html += `
+                    <h2 class="text-xl font-bold text-gray-500 uppercase tracking-widest mb-6 border-b border-white/10 pb-2 mt-12 first:mt-0">
+                        <i class="fa-solid ${catMeta.icon} mr-2"></i> ${catMeta.title}
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                `;
+
+                prompts.forEach(p => {
+                    // Render tags
+                    const tagsHtml = p.tags.map(t => `<span class="text-[10px] bg-white/5 px-2 py-0.5 rounded text-gray-400">#${t}</span>`).join('');
+
+                    html += `
+                        <div class="glass-card rounded-2xl p-6 border border-white/5 hover:border-brand-accent/30 transition group flex flex-col h-full">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-lg ${p.bg} flex items-center justify-center ${p.color}">
+                                        <i class="fa-solid ${p.icon}"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-white text-lg leading-tight line-clamp-1">${p.title}</h3>
+                                        <p class="text-xs text-gray-400 mt-1 mb-2 line-clamp-2 h-8 leading-tight">${p.description || 'Описание отсутствует.'}</p>
+                                        <p class="text-[10px] text-brand-accent font-mono opacity-70 border border-brand-accent/20 inline-block px-1 rounded">
+                                            ${p.model}
+                                        </p>
+                                    </div>
+                                </div>
+                                <button onclick="copyPrompt('${p.id}')" 
+                                    class="text-xs bg-white/5 hover:bg-brand-accent hover:text-black px-3 py-2 rounded-lg text-gray-400 transition flex items-center whitespace-nowrap">
+                                    <i class="fa-regular fa-copy mr-2"></i> Copy
+                                </button>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                ${tagsHtml}
+                            </div>
+
+                            <div class="bg-black/50 rounded-lg p-4 font-mono text-xs text-gray-300 overflow-x-auto relative group-hover:bg-black/70 transition flex-grow">
+                                <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition z-10 pointer-events-none">
+                                    <span class="text-[10px] text-gray-500 bg-black/80 px-1 rounded">PREVIEW</span>
+                                </div>
+                                <pre class="whitespace-pre-wrap line-clamp-6">${p.content}</pre>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += `</div>`; // Close grid
+            }
+
+            container.innerHTML = html;
+        }
+
+        // Copy Function
+        function copyPrompt(id) {
+            const prompt = PROMPTS_DB.find(p => p.id === id);
+            if (prompt) {
+                navigator.clipboard.writeText(prompt.content).then(() => {
+                    // Simple toast notification instead of alert
+                    const btn = document.activeElement;
+                    if (btn && btn.tagName === 'BUTTON') {
+                        const originalText = btn.innerHTML;
+                        btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> Copied';
+                        btn.classList.add('text-green-400');
+                        setTimeout(() => {
+                            btn.innerHTML = originalText;
+                            btn.classList.remove('text-green-400');
+                        }, 2000);
+                    } else {
+                        alert('Промпт скопирован!');
+                    }
+                });
+            }
+        }
+
+        // Init
+        init();
+    </script>
+</body>
+
+</html>

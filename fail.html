@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Lab | Ошибка оплаты</title>
+    <script src="assets/js/tailwindcss.js"></script>
+    <link href="assets/css/fontawesome.css" rel="stylesheet">
+    <link href="assets/css/google-fonts.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0C10',
+                            accent: '#66FCF1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+            (function (m, e, t, r, i, k, a) {
+                m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+                m[i].l = 1 * new Date();
+                for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+            })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=106463224', 'ym');
+
+        ym(106463224, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/106463224" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div
+        class="glass-card rounded-2xl p-8 max-w-lg w-full text-center border-t-2 border-red-500 shadow-[0_0_50px_rgba(239,68,68,0.1)]">
+
+        <div class="w-20 h-20 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fa-solid fa-xmark text-4xl text-red-500"></i>
+        </div>
+
+        <h1 class="font-display text-3xl font-bold mb-4">Оплата не прошла</h1>
+
+        <p class="text-gray-400 mb-8">
+            Что-то пошло не так во время транзакции. Средства не были списаны.
+            Попробуйте еще раз или напишите нам.
+        </p>
+
+        <div class="space-y-4">
+            <a href="join.html"
+                class="block w-full border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-black font-bold py-4 rounded-xl transition duration-300">
+                Попробовать снова
+            </a>
+
+            <a href="https://t.me/vladmarketolog" target="_blank"
+                class="block w-full text-sm text-gray-500 hover:text-white transition">
+                Написать в поддержку
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

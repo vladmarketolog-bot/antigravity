@@ -1,0 +1,31 @@
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  
+  // DEBUG: Записываем ВСЁ, что пришло, в одну ячейку, чтобы понять проблему
+  // Это поможет нам увидеть, доходят ли данные вообще
+  try {
+    var debugInfo = JSON.stringify(e);
+    sheet.appendRow(["DEBUG LOG", debugInfo]);
+    
+    // Попытка записать данные штатно
+    var data = e.parameter;
+    sheet.appendRow([
+      new Date().toLocaleString(),
+      data.name || "No Name",
+      data.email || "No Email",
+      data.telegram || "No TG",
+      data.Browser || "-",
+      data.Screen || "-",
+      JSON.stringify(data) // Запишем все поля "оптом" в последний столбец для проверки
+    ]);
+    
+    return ContentService.createTextOutput(JSON.stringify({"result":"success", "debug": "logged"}))
+      .setMimeType(ContentService.MimeType.JSON);
+      
+  } catch (error) {
+    // Если скрипт падает, запишем ошибку в таблицу
+    sheet.appendRow(["ERROR", error.toString()]);
+    return ContentService.createTextOutput(JSON.stringify({"result":"error", "error": error.toString()}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
