@@ -4,87 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antigravity Live Lab | Бизнес без кода</title>
-    <script src="assets/js/tailwindcss.js"></script>
-    <link href="assets/css/fontawesome.css" rel="stylesheet">
-    <link href="assets/css/google-fonts.css" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-
-    <!-- SEO Meta Tags -->
+    <title>Antigravity Digital Architect | Технология захвата рынка</title>
     <meta name="description"
-        content="Научитесь запускать стартапы, сервисы и маркетплейсы без программистов. Закрытый клуб предпринимателей: готовые шаблоны, AI-инструменты и база знаний. Экономьте миллионы на разработке.">
-    <link rel="canonical" href="https://antigravity.club/">
+        content="Инсталлирую технологию захвата рынка. Сайты на чистом коде, SEO-комбайны, AI-агенты.">
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Как запускать IT-бизнесы без разработчиков?">
-    <meta property="og:description"
-        content="Вступай в Antigravity. Технология постройки сайтов и приложений с помощью AI за 48 часов.">
-    <meta property="og:url" content="https://antigravity.club/">
-    <meta property="og:image" content="https://antigravity.club/assets/img/og-preview.jpg">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
-    <!-- Schema.org Rich Snippets -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Antigravity Live Lab",
-      "description": "Закрытый клуб предпринимателей по запуску IT-продуктов с помощью AI без кода.",
-      "image": "https://antigravity.club/assets/img/og-preview.jpg",
-      "brand": {
-        "@type": "Brand",
-        "name": "Antigravity Lab"
-      },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://antigravity.club/join.html",
-        "priceCurrency": "RUB",
-        "price": "10000",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Antigravity Lab"
-        }
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "127"
-      }
-    }
-    </script>
+    <!-- Font Awesome -->
+    <link href="assets/css/fontawesome.css" rel="stylesheet">
 
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        bg: '#050505',
+                        surface: '#0A0A0A',
+                        surface2: '#121212',
+                        accent: '#00FFFF', // Electric Cyan
+                        danger: '#FF3333',
+                        success: '#39FF14', // Neon Green
+                    },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0B0C10',
-                            gray: '#1F2833',
-                            accent: '#66FCF1',
-                            muted: '#45A29E',
-                            purple: '#C5C6C7'
-                        }
+                        grotesk: ['Space Grotesk', 'sans-serif'],
                     },
                     animation: {
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
                     }
                 }
             }
         }
     </script>
+
     <style>
         body {
             background-color: #050505;
@@ -92,818 +51,690 @@
             overflow-x: hidden;
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .neon-text {
-            text-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
+        .neon-border:hover {
+            border-color: #00FFFF;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+            transition: all 0.3s ease;
         }
 
-        .gradient-text {
-            background: linear-gradient(to right, #66FCF1, #45A29E);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* Grid Pattern */
+        .grid-bg {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
 
-        ::-webkit-scrollbar-track {
-            background: #0B0C10;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #45A29E;
-            border-radius: 4px;
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-            (function (m, e, t, r, i, k, a) {
-                m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-                m[i].l = 1 * new Date();
-                for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-            })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=106463224', 'ym');
-
-        ym(106463224, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
-    </script>
-    <noscript>
-        <div><img src="https://mc.yandex.ru/watch/106463224" style="position:absolute; left:-9999px;" alt="" /></div>
-    </noscript>
-    <!-- /Yandex.Metrika counter -->
 </head>
 
-<body class="antialiased">
+<body class="font-sans antialiased text-gray-300 selection:bg-accent selection:text-black">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-card border-b border-white/10">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-cube text-brand-accent text-2xl animate-pulse-slow"></i>
-                <span class="font-display font-bold text-xl tracking-wider">ANTIGRAVITY <span
-                        class="text-brand-muted">LAB</span></span>
-                <!-- Meta Badge: Header (Fixed) -->
-                <div
-                    class="hidden xl:inline-flex items-center border border-brand-accent/20 text-[10px] px-2 py-0.5 rounded bg-black/40 text-brand-muted font-mono ml-4 -rotate-2 hover:rotate-0 transition cursor-help whitespace-nowrap">
-                    <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Лого: Midjourney (1 мин)
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="font-grotesk text-2xl font-bold tracking-tighter text-white">
+                        ANTIGRAVITY <span class="text-accent">.</span>
+                    </a>
                 </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#comparison"
+                            class="hover:text-accent transition-colors text-sm font-medium">Сравнение</a>
+                        <a href="#cases" class="hover:text-accent transition-colors text-sm font-medium">Кейсы</a>
+                        <a href="#roadmap" class="hover:text-accent transition-colors text-sm font-medium">Roadmap</a>
+                        <a href="#pricing" class="hover:text-accent transition-colors text-sm font-medium">Тарифы</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <a href="#contact"
+                        class="bg-white text-black hover:bg-accent hover:text-black px-6 py-2 font-bold text-sm uppercase tracking-wider transition-all duration-300">
+                        Забронировать слот
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white mobile-menu-btn">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
             </div>
-            <div class="hidden md:flex space-x-8 text-sm font-semibold tracking-wide text-gray-300">
-                <a href="#concept" class="hover:text-brand-accent transition">КОНЦЕПЦИЯ</a>
-                <a href="#ecosystem" class="hover:text-brand-accent transition">ЭКОСИСТЕМА</a>
-                <a href="#roadmap" class="hover:text-brand-accent transition">СПРИНТЫ</a>
-                <a href="join.html" class="hover:text-brand-accent transition">ДОСТУП</a>
-            </div>
-            <div class="hidden md:flex items-center space-x-4">
-                <a href="cabinet/login.html" class="text-white hover:text-brand-accent transition font-bold text-sm">
-                    <i class="fa-solid fa-lock mr-1"></i> Войти
-                </a>
-                <a href="join.html"
-                    class="bg-brand-accent text-brand-dark px-6 py-2 rounded-full font-bold hover:bg-white transition">
-                    В Клуб
-                </a>
-            </div>
-            <button onclick="toggleMobileMenu()" class="md:hidden text-white text-2xl p-2">
-                <i class="fa-solid fa-bars"></i>
-            </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden md:hidden bg-[#0B0C10]/95 backdrop-blur-xl border-t border-white/10 p-6 absolute w-full left-0 shadow-2xl">
-            <a href="#concept" class="block py-3 text-lg text-gray-300 border-b border-white/5">Концепция</a>
-            <a href="#ecosystem" class="block py-3 text-lg text-gray-300 border-b border-white/5">Экосистема</a>
-            <a href="#roadmap" class="block py-3 text-lg text-gray-300 border-b border-white/5">Спринты (Roadmap)</a>
-            <a href="join.html" class="block py-3 text-lg text-brand-accent font-bold mt-2">Вступить в Клуб</a>
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-white/5">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#comparison"
+                    class="block px-3 py-2 text-base font-medium text-white hover:text-accent">Сравнение</a>
+                <a href="#cases" class="block px-3 py-2 text-base font-medium text-white hover:text-accent">Кейсы</a>
+                <a href="#roadmap"
+                    class="block px-3 py-2 text-base font-medium text-white hover:text-accent">Roadmap</a>
+                <a href="#pricing" class="block px-3 py-2 text-base font-medium text-white hover:text-accent">Тарифы</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute top-20 left-10 w-72 h-72 bg-brand-accent/10 rounded-full blur-[100px]"></div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-900/20 rounded-full blur-[100px]"></div>
+    <!-- 1. Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-bg">
+        <div class="absolute inset-0 grid-bg z-0 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-        <!-- Meta Badge: Graphics -->
-        <div
-            class="absolute top-40 right-20 hidden lg:block border border-purple-500/30 text-[10px] px-2 py-1 rounded bg-black/40 text-purple-400 font-mono rotate-3 hover:rotate-0 transition cursor-help">
-            <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Графика: CSS (0 img)
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <div
-                class="inline-block mb-6 px-4 py-2 rounded-full border border-brand-accent/30 bg-brand-accent/5 relative group max-w-full">
-                <span
-                    class="text-brand-accent text-[10px] md:text-xs font-bold tracking-widest uppercase block whitespace-normal leading-tight md:inline"><i
-                        class="fa-solid fa-bolt mr-2 text-sm align-middle"></i>Сайт создан с нуля за 5 часов без помощи
-                    программистов</span>
-
-                <!-- Meta Badge: Headline -->
-                <div
-                    class="absolute -top-6 -right-24 hidden md:block border border-brand-accent/30 text-[10px] px-2 py-1 rounded bg-black/80 text-brand-muted font-mono -rotate-6 group-hover:rotate-0 transition cursor-help">
-                    <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Оффер: GPT-4o
-                </div>
-            </div>
-
-            <h1
-                class="font-display text-4xl sm:text-5xl md:text-7xl font-bold leading-tight md:leading-none tracking-tight mb-8 break-words uppercase">
-                ЭТОТ САЙТ <br class="md:hidden"> СДЕЛАН <br class="hidden md:block">
-                <span class="gradient-text block md:inline">БЕЗ ПРОГРАММИСТОВ.</span>
-                <br class="hidden md:block">
-                БЕЗ ДИЗАЙНЕРОВ.
-            </h1>
-
-            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                Я использовал только Google Antigravity и своё маркетинговое мышление. <br>
-                <span class="text-white">Хотите научиться так же?</span> Я провожу закрытые стримы, где мы вместе с вами
-                делаем такие сайты за один вечер.
-            </p>
-
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="join.html"
-                    class="bg-brand-accent text-brand-dark px-8 py-4 rounded-lg font-bold text-lg hover:scale-105 transition shadow-[0_0_20px_rgba(102,252,241,0.3)] flex items-center justify-center">
-                    <i class="fa-solid fa-video mr-2"></i> Доступ к Live-Стримам
-                </a>
-                <button onclick="openVideoModal()"
-                    class="glass-card text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition border border-white/20 cursor-pointer">
-                    <i class="fa-solid fa-play mr-2"></i> Смотреть демо
-                </button>
-            </div>
-
-            <div class="mt-12 text-sm text-gray-500 font-mono">
-                🔥 Набор в группу открыт <span class="animate-pulse text-green-500">●</span>
-            </div>
-        </div>
-    </header>
-
-    <!-- Proof / Features Section -->
-    <section id="concept" class="py-20 bg-brand-dark relative">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Создание Премиум-сайтов с AI за 48 часов
-                </h2>
-                <p class="text-gray-400">Мы не делаем "конструкторы". Мы создаем продукты, за которые агентства берут
-                    300,000₽.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                <!-- Meta Badge: Cards -->
-                <div
-                    class="absolute -top-8 right-0 hidden md:block border border-blue-500/30 text-[10px] px-2 py-1 rounded bg-black/60 text-blue-400 font-mono rotate-2 hover:rotate-0 transition cursor-help z-20">
-                    <i class="fa-solid fa-code mr-1"></i> Код: Claude 3.7
-                </div>
-
-                <!-- Card 1 -->
-                <div class="glass-card p-8 rounded-2xl hover:translate-y-[-10px] transition duration-300">
-                    <div
-                        class="w-14 h-14 bg-brand-accent/10 rounded-xl flex items-center justify-center mb-6 text-brand-accent">
-                        <i class="fa-solid fa-sitemap text-2xl"></i>
+                <!-- Text -->
+                <div class="reveal">
+                    <div class="inline-block px-3 py-1 mb-6 border border-accent/20 rounded-full bg-accent/5">
+                        <span class="text-accent text-xs font-bold tracking-widest uppercase"><i
+                                class="fa-solid fa-triangle-exclamation mr-2"></i>v. 2026 Stable Release</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Дизайн уровня Awwwards</h3>
-                    <p class="text-gray-400 leading-relaxed">
-                        Забудьте о шаблонах Tilda. AI генерирует уникальный UI/UX, который выглядит дорого.
-                        Плавные анимации, стекло, неон — всё, что вы видите здесь, создано за минуты.
+                    <h1 class="font-grotesk text-4xl sm:text-6xl font-bold leading-tight text-white mb-6">
+                        КОНКУРЕНТЫ ЕЩЕ ВЕРСТАЮТ, <br>
+                        <span class="text-white">А ВЫ УЖЕ ПРОДАЕТЕ.</span> <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-white">МОЩНЫЕ САЙТЫ
+                            ЗА 7 ДНЕЙ.</span>
+                    </h1>
+                    <p class="text-xl text-gray-400 max-w-lg leading-relaxed mb-8">
+                        Пока ваши конкуренты месяцами согласовывают прототипы, вы уже принимаете заказы. Внедряю <span
+                            class="text-white font-bold">высокопроизводительные Sale и SEO-комбайны</span> на чистом
+                        коде.
                     </p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="glass-card p-8 rounded-2xl hover:translate-y-[-10px] transition duration-300">
-                    <div
-                        class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 text-purple-400">
-                        <i class="fa-solid fa-plug text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Автоматизация Продаж</h3>
-                    <p class="text-gray-400 leading-relaxed">
-                        Форма заявки уже связана с CRM и Телеграм-ботом. Никакого Zapier. Прямая интеграция через
-                        скрипты, написанные AI.
-                    </p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="glass-card p-8 rounded-2xl hover:translate-y-[-10px] transition duration-300">
-                    <div
-                        class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-400">
-                        <i class="fa-solid fa-mobile-screen text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Идеальный Mobile-First</h3>
-                    <p class="text-gray-400 leading-relaxed">
-                        Вам не нужно "адаптировать" сайт. AI сразу пишет код, который летает на iPhone.
-                        Никаких поехавших шрифтов или кривых блоков.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comparison Section -->
-    <section class="py-20 border-t border-white/5">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-                <div class="space-y-8">
-                    <h2 class="font-display text-4xl font-bold">Парадокс <span class="text-brand-accent">Скорости и
-                            Качества</span></h2>
-                    <p class="text-gray-300 text-lg">
-                        Обычно "быстро" значит "плохо". Но не с AI. Нейросеть не делает ошибок, не устает и знает
-                        все современные стандарты Web-разработки наизусть.
-                    </p>
-
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <i class="fa-solid fa-xmark text-red-500 mt-1 mr-4 text-xl"></i>
-                            <div>
-                                <h4 class="font-bold text-gray-200">Бюджет на запуск: 200,000₽+</h4>
-                                <p class="text-sm text-gray-500">Деньги на ветер, если гипотеза не сработает.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fa-solid fa-xmark text-red-500 mt-1 mr-4 text-xl"></i>
-                            <div>
-                                <h4 class="font-bold text-gray-200">Сроки: 2 месяца</h4>
-                                <p class="text-sm text-gray-500">Идея устаревает, пока её пишут.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl border border-brand-accent/20 relative overflow-hidden">
-                    <div
-                        class="absolute top-0 right-0 bg-brand-accent text-brand-dark text-xs font-bold px-3 py-1 rounded-bl-lg">
-                        НОВЫЙ СТАНДАРТ</div>
-                    <h3 class="font-display text-2xl font-bold mb-6 text-brand-accent">Метод Antigravity Lab</h3>
-
-                    <div class="space-y-6">
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center mr-4">
-                                <i class="fa-solid fa-check text-green-400 text-sm"></i>
-                            </div>
-                            <span class="text-gray-200">Качество: <span class="text-white font-bold">Выше, чем у
-                                    студии</span></span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center mr-4">
-                                <i class="fa-solid fa-check text-green-400 text-sm"></i>
-                            </div>
-                            <span class="text-gray-200">Сроки: <span class="text-white font-bold">1-2
-                                    вечера</span></span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center mr-4">
-                                <i class="fa-solid fa-check text-green-400 text-sm"></i>
-                            </div>
-                            <span class="text-gray-200">Результат: <span class="text-white font-bold">Продукт мирового
-                                    уровня</span></span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap / Sprints Section -->
-    <section id="roadmap" class="py-20 bg-[#08090C]">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-brand-accent font-mono text-sm tracking-widest uppercase">Расписание Запусков</span>
-                <h2 class="font-display text-3xl md:text-4xl font-bold mt-2">На чем вы будете учиться?</h2>
-                <p class="text-gray-400 mt-4">Вы будете наблюдать за созданием этих сайтов в прямом эфире и перенимать
-                    логику действий.</p>
-            </div>
-
-            <div class="relative">
-                <!-- Line -->
-                <div class="hidden md:block absolute left-1/2 w-0.5 h-full bg-white/10 -translate-x-1/2"></div>
-
-                <!-- Sprint 1 -->
-                <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative group">
-                    <div class="md:w-5/12 mb-4 md:mb-0 text-center md:text-right pr-0 md:pr-12">
-                        <h3 class="text-xl font-bold text-white group-hover:text-brand-accent transition">Неделя 1:
-                            Сайт для Строительной Компании</h3>
-                        <p class="text-gray-500 text-sm mt-2">Делаем классический сайт услуг с SEO-оптимизацией.
-                            Генерируем 100+ страниц под каждый город региона. "Неубиваемый" поток клиентов.</p>
-                    </div>
-                    <div
-                        class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-gray border-4 border-[#08090C] rounded-full z-10 items-center justify-center">
-                        <div class="w-2 h-2 bg-brand-accent rounded-full animate-ping"></div>
-                    </div>
-                    <div class="md:w-5/12 pl-0 md:pl-12 text-center md:text-left">
-                        <span class="bg-white/5 text-gray-300 px-3 py-1 rounded text-xs">Статус: Завершено</span>
-                    </div>
-                </div>
-
-                <!-- Sprint 2 -->
-                <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-12 relative group">
-                    <div class="md:w-5/12 mb-4 md:mb-0 text-center md:text-left pl-0 md:pl-12">
-                        <h3 class="text-xl font-bold text-white group-hover:text-brand-accent transition">Неделя 2:
-                            Магазин Цветов в Telegram</h3>
-                        <p class="text-gray-500 text-sm mt-2">Не просто сайт, а полноценное приложение (Mini App) внутри
-                            мессенджера.
-                            Клиент выбирает букет и оплачивает, не выходя из чата.</p>
-                    </div>
-                    <div
-                        class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-gray border-4 border-[#08090C] rounded-full z-10 items-center justify-center">
-                        <div class="w-2 h-2 bg-brand-accent rounded-full animate-ping"></div>
-                    </div>
-                    <div class="md:w-5/12 pl-0 md:pl-12 text-center md:text-right">
-                        <span
-                            class="bg-brand-accent/20 text-brand-accent px-3 py-1 rounded text-xs border border-brand-accent/30">Статус:
-                            LIVE сейчас</span>
-                    </div>
-                </div>
-
-                <!-- Sprint 3 -->
-                <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative group">
-                    <div class="md:w-5/12 mb-4 md:mb-0 text-center md:text-right pr-0 md:pr-12">
-                        <h3 class="text-xl font-bold text-white group-hover:text-brand-accent transition">Неделя 3:
-                            Платформа для Онлайн-Школы</h3>
-                        <p class="text-gray-500 text-sm mt-2">Вместо GetCourse. Личный кабинет ученика,
-                            закрытый доступ к урокам, прием платежей. Полный контроль над контентом.</p>
-                    </div>
-                    <div
-                        class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-gray border-4 border-[#08090C] rounded-full z-10 font-bold text-[10px] text-white items-center justify-center">
-                        3</div>
-                    <div class="md:w-5/12 pl-0 md:pl-12 text-center md:text-left">
-                        <span class="bg-white/5 text-gray-500 px-3 py-1 rounded text-xs">Статус: Скоро</span>
-                    </div>
-                </div>
-
-                <!-- Sprint 4 -->
-                <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-12 relative group">
-                    <div class="md:w-5/12 mb-4 md:mb-0 text-center md:text-left pl-0 md:pl-12">
-                        <h3 class="text-xl font-bold text-white group-hover:text-brand-accent transition">Неделя 4:
-                            Сайт Агентства Недвижимости</h3>
-                        <p class="text-gray-500 text-sm mt-2">Внедряем AI-риелтора. Нейросеть сама общается с клиентом
-                            на сайте,
-                            подбирает квартиры и назначает встречи. Автопилот продаж.</p>
-                    </div>
-                    <div
-                        class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-gray border-4 border-[#08090C] rounded-full z-10 font-bold text-[10px] text-white items-center justify-center">
-                        4</div>
-                    <div class="md:w-5/12 pr-0 md:pr-12 text-center md:text-right">
-                        <span class="bg-white/5 text-gray-500 px-3 py-1 rounded text-xs">Статус: В плане</span>
-                    </div>
-                </div>
-
-                <!-- Sprint 5 -->
-                <div class="flex flex-col md:flex-row items-center justify-between relative group">
-                    <div class="md:w-5/12 mb-4 md:mb-0 text-center md:text-right pr-0 md:pr-12">
-                        <h3 class="text-xl font-bold text-white group-hover:text-brand-accent transition">Неделя 5:
-                            Агрегатор Клининга и Ремонта</h3>
-                        <p class="text-gray-500 text-sm mt-2">Клон Profi.ru или Avito Услуг в миниатюре.
-                            Платформа, где мастера получают заказы, а вы — комиссию с каждой сделки.</p>
-                    </div>
-                    <div
-                        class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-gray border-4 border-[#08090C] rounded-full z-10 font-bold text-[10px] text-white items-center justify-center">
-                        5</div>
-                    <div class="md:w-5/12 pl-0 md:pl-12 text-center md:text-left">
-                        <span class="bg-white/5 text-gray-500 px-3 py-1 rounded text-xs">Статус: В плане</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Deep Dive / Value Breakdown Section -->
-    <section class="py-20 bg-brand-dark relative overflow-hidden">
-        <div
-            class="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-accent/20 to-transparent">
-        </div>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <span class="text-brand-accent font-mono text-sm tracking-widest uppercase mb-2 block">Что внутри
-                    клуба</span>
-                <h2 class="font-display text-3xl md:text-5xl font-bold">Полная система запуска IT-продуктов</h2>
-                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Я даю не просто уроки, а отлаженную технологию запуска
-                    цифровых продуктов.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div
-                    class="bg-[#12141a] rounded-2xl p-8 border border-white/5 hover:border-brand-accent/50 transition group">
-                    <div
-                        class="w-16 h-16 bg-brand-accent/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-video text-2xl text-brand-accent"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Еженедельные Live-Запуски</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                        Никакой теории. Я собираю всех в Zoom и за 2 часа с нуля запускаем рабочий сервис (SaaS,
-                        Маркетплейс, AI-tool). Вы видите каждое мое действие и промпт.
-                    </p>
-                    <ul class="space-y-2 text-xs text-gray-500">
-                        <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Без монтажа
-                        </li>
-                        <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Исходники
-                            сразу после стрима</li>
-                    </ul>
-                </div>
-
-                <!-- Feature 2 -->
-                <div
-                    class="bg-[#12141a] rounded-2xl p-8 border border-white/5 hover:border-red-500/50 transition group">
-                    <div
-                        class="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-bullseye text-2xl text-red-500"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Жесткие Маркетинг-Разборы</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                        Вы приносите свой проект — я говорю, как его продать. Разбираем оффер, дизайн и воронку продаж.
-                        Я маркетолог, а не программист, поэтому я фокусируюсь на деньгах.
-                    </p>
-                    <ul class="space-y-2 text-xs text-gray-500">
-                        <li class="flex items-center"><i class="fa-solid fa-check text-red-500 mr-2"></i> Поиск "узких
-                            горлышек"</li>
-                        <li class="flex items-center"><i class="fa-solid fa-check text-red-500 mr-2"></i> Стратегия
-                            выхода на $1000</li>
-                    </ul>
-                </div>
-
-                <!-- Feature 3 -->
-                <div
-                    class="bg-[#12141a] rounded-2xl p-8 border border-white/5 hover:border-purple-500/50 transition group">
-                    <div
-                        class="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-database text-2xl text-purple-500"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Доступ к "Базе Знаний"</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                        Все мои инструкции, шаблоны кода и связки, которые я копил годами. Просто "Ctrl+C / Ctrl+V" в
-                        свой
-                        проект.
-                    </p>
-                    <ul class="space-y-2 text-xs text-gray-500">
-                        <li class="flex items-center"><i class="fa-solid fa-check text-purple-500 mr-2"></i> Библиотека
-                            Промптов (Инструкций)</li>
-                        <li class="flex items-center"><i class="fa-solid fa-check text-purple-500 mr-2"></i> Готовые
-                            базы данных</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ecosystem / Retention Section -->
-    <section id="ecosystem" class="py-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-brand-accent/5 skew-y-3 transform origin-bottom-left"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-3xl md:text-4xl font-bold">Больше, чем просто уроки</h2>
-                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Почему участники не уходят через месяц? Потому что здесь
-                    среда для роста вашего бизнеса.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-[#12141a] p-6 rounded-xl border-l-4 border-brand-accent hover:bg-[#1a1d24] transition">
-                    <i class="fa-solid fa-box-open text-3xl text-brand-accent mb-4"></i>
-                    <h4 class="font-bold text-lg mb-2">Готовые Шаблоны</h4>
-                    <p class="text-sm text-gray-500">Забирай готовые куски кода и промпты. Не пиши с нуля, копируй
-                        рабочее.</p>
-                </div>
-                <div class="bg-[#12141a] p-6 rounded-xl border-l-4 border-purple-500 hover:bg-[#1a1d24] transition">
-                    <i class="fa-solid fa-user-group text-3xl text-purple-500 mb-4"></i>
-                    <h4 class="font-bold text-lg mb-2">Кадровый Резерв</h4>
-                    <p class="text-sm text-gray-500">Нет времени делать руками? Наймите лучших участников клуба.
-                        Они знают этот стек и запустят ваш проект за копейки.</p>
-                </div>
-                <div class="bg-[#12141a] p-6 rounded-xl border-l-4 border-blue-500 hover:bg-[#1a1d24] transition">
-                    <i class="fa-solid fa-chart-line text-3xl text-blue-500 mb-4"></i>
-                    <h4 class="font-bold text-lg mb-2">Разборы Бизнес-Моделей</h4>
-                    <p class="text-sm text-gray-500">Обсуждаем не "как написать код", а "как на этом заработать".
-                        Юнит-экономика, маркетинг, продажи.</p>
-                </div>
-                <div class="bg-[#12141a] p-6 rounded-xl border-l-4 border-yellow-500 hover:bg-[#1a1d24] transition">
-                    <i class="fa-solid fa-users text-3xl text-yellow-500 mb-4"></i>
-                    <h4 class="font-bold text-lg mb-2">Нетворкинг</h4>
-                    <p class="text-sm text-gray-500">Закрытый чат основателей. Совместные проекты и офлайн встречи.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Author Section -->
-    <section class="py-24 bg-black relative">
-        <div class="container mx-auto px-6">
-            <div
-                class="glass-card rounded-3xl p-8 md:p-16 border border-white/10 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
-                <!-- Glitch Effect Bg -->
-                <div
-                    class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-brand-accent/5 to-transparent skew-x-12">
-                </div>
-
-                <!-- Avatar/Photo Placeholder -->
-                <div class="w-full md:w-1/3 relative z-10 flex justify-center">
-                    <div
-                        class="w-64 h-64 md:w-full md:h-auto aspect-square bg-gray-800 rounded-2xl overflow-hidden relative shadow-2xl border border-white/10 group">
-                        <!-- Real photo -->
-                        <img src="assets/img/photo.jpg" alt="Vlad Antigravity" class="w-full h-full object-cover">
-                        <!-- Overlays -->
-                        <div
-                            class="absolute inset-0 bg-brand-accent/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Content -->
-                <div class="w-full md:w-2/3 relative z-10">
-                    <h2 class="font-display text-3xl md:text-5xl font-bold mb-6">Кто ведет этот клуб?</h2>
-
-                    <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
-                        <p>
-                            <span class="text-brand-accent font-bold">В 2026 году код — это не навык. Это
-                                коммодити.</span>
-                            Я маркетолог, который устал зависеть от разработчиков.
-                        </p>
-                        <p>
-                            Раньше я тратил миллионы на MVP и ждал месяцами. Теперь я запускаю их за вечер, пока играет
-                            музыка.
-                            Я понял, что <span
-                                class="text-white underline decoration-brand-accent/50 underline-offset-4">старый метод
-                                мертв</span>.
-                        </p>
-                        <p>
-                            В этом клубе я не учу вас программировать — для этого есть AI.
-                            Я учу вас <span class="text-white font-bold">архитектурному мышлению</span> и <span
-                                class="text-white font-bold">агрессивному запуску</span>.
-                            Вы получите мой личный стек технологий, который позволяет одному человеку заменить целый
-                            IT-отдел <span class="text-white">и отдел маркетинга</span>.
-                        </p>
-                    </div>
-
-                    <div class="mt-10 flex items-center">
-                        <div class="h-px w-16 bg-brand-accent mr-4"></div>
-                        <span class="font-display font-bold text-xl tracking-wider text-white">ВЛАД <span
-                                class="text-brand-muted">ANTIGRAVITY</span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Killer Feature: Concierge Service -->
-    <section class="py-12 bg-[#08090C] border-t border-b border-white/5">
-        <div class="container mx-auto px-6">
-            <div
-                class="glass-card rounded-2xl p-8 md:p-12 border border-brand-gold/30 bg-brand-gold/5 flex flex-col md:flex-row items-center gap-8 shadow-[0_0_40px_rgba(255,215,0,0.05)]">
-
-                <div class="flex-shrink-0">
-                    <div
-                        class="w-20 h-20 rounded-full bg-brand-gold/10 flex items-center justify-center border border-brand-gold/30">
-                        <i class="fa-solid fa-handshake-simple text-4xl text-brand-gold"></i>
-                    </div>
-                </div>
-
-                <div class="flex-grow text-center md:text-left">
-                    <h3 class="font-display text-2xl font-bold mb-2 text-white"><span
-                            class="text-brand-gold">Консьерж-Сервис</span> интеграций</h3>
-                    <p class="text-gray-300 leading-relaxed mb-0">
-                        Боитесь, что "сломаете код" или застрянете на сложной интеграции? <br>
-                        <span class="text-white font-bold">Не бойтесь.</span> Если что-то пойдет не так — наш
-                        Senior-программист подключится к вашему экрану и настроит всё своими руками. Входит в подписку.
-                    </p>
-                </div>
-
-                <div class="flex-shrink-0 mt-4 md:mt-0">
-                    <span
-                        class="inline-block bg-brand-gold text-black px-6 py-3 rounded-xl font-bold text-sm tracking-wider uppercase">
-                        Killer Feature
-                    </span>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-20">
-        <div class="container mx-auto px-6">
-            <div
-                class="max-w-3xl mx-auto glass-card rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(102,252,241,0.1)]">
-                <div class="p-8 md:p-12 text-center border-b border-white/10">
-                    <h2 class="font-display text-3xl font-bold mb-2">Закрытый клуб Antigravity</h2>
-                    <p class="text-gray-400 mb-8">Ваш пропуск в мир, где один человек заменяет IT-корпорацию.</p>
-
-                    <div class="flex flex-col justify-center items-center mb-8 relative">
-                        <span class="text-lg text-gray-500 line-through decoration-red-500 decoration-2">10,000₽</span>
-                        <div class="flex items-baseline">
-                            <span class="text-5xl font-bold text-brand-accent">4,900₽</span>
-                            <span class="text-gray-500 ml-2">/ месяц</span>
-                        </div>
-
-                        <!-- Meta Badge: Pricing -->
-                        <div
-                            class="absolute -top-6 -right-12 hidden md:block border border-green-500/30 text-[10px] px-2 py-1 rounded bg-black/80 text-green-400 font-mono -rotate-12 hover:rotate-0 transition cursor-help">
-                            <i class="fa-solid fa-robot mr-1"></i> Расчет: AI
-                        </div>
-                    </div>
-
-                    <a href="join.html"
-                        class="block w-full bg-brand-accent text-brand-dark py-4 rounded-xl font-bold text-xl hover:bg-white transition hover:shadow-lg transform hover:-translate-y-1 text-center">
-                        Вступить в Клуб
-                    </a>
-                    <p class="text-xs text-gray-500 mt-4"><i class="fa-solid fa-shield-halved mr-1"></i> Гарантия
-                        возврата средств после первого стрима</p>
-                </div>
-                <div class="p-8 md:p-12 bg-[#0B0C10]/50">
-                    <h3 class="font-bold text-gray-300 mb-6 uppercase text-sm tracking-wider">Что вы получаете:</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-center text-gray-300">
-                            <i class="fa-solid fa-check text-brand-accent mr-3"></i>
-                            <span><strong class="text-white">Еженедельные Live-Запуски</strong> (строим сайты с нуля в
-                                эфире)</span>
-                        </li>
-                        <li class="flex items-center text-gray-300">
-                            <i class="fa-solid fa-check text-brand-accent mr-3"></i>
-                            <span><strong class="text-white">Консьерж-Сервис</strong> (личный CTO для ваших
-                                вопросов)</span>
-                        </li>
-                        <li class="flex items-center text-gray-300">
-                            <i class="fa-solid fa-check text-brand-accent mr-3"></i>
-                            <span><strong class="text-white">Маркетинг-Разборы</strong> (докрутка ваших офферов)</span>
-                        </li>
-                        <li class="flex items-center text-gray-300">
-                            <i class="fa-solid fa-check text-brand-accent mr-3"></i>
-                            <span><strong class="text-white">База Знаний</strong> (готовые шаблоны и промпты)</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-[#050505] pt-20 pb-10 border-t border-white/5">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-                <!-- Brand Column -->
-                <div class="lg:col-span-2">
-                    <div class="flex items-center space-x-2 mb-4 md:mb-0 relative">
-                        <i class="fa-solid fa-cube text-brand-accent text-2xl"></i>
-                        <span class="font-display font-bold text-xl tracking-wider text-white">ANTIGRAVITY <span
-                                class="text-brand-muted">LAB</span></span>
-                        <!-- Meta Badge: Footer -->
-                        <div
-                            class="absolute bottom-full left-0 mb-2 border border-white/10 text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-500 font-mono hidden md:block whitespace-nowrap">
-                            <i class="fa-solid fa-keyboard mr-1"></i> Hand-coded lines: 0
-                        </div>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed mb-6 max-w-sm">
-                        Строим будущее без кода. Я объединяю AI-технологии и предпринимательское мышление, чтобы
-                        создавать продукты за часы, а не месяцы.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://t.me/vladmarketolog" target="_blank"
-                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-accent hover:text-brand-dark transition duration-300">
-                            <i class="fa-brands fa-telegram"></i>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact"
+                            class="group relative px-8 py-4 bg-accent text-black font-bold uppercase tracking-widest overflow-hidden hover:bg-white transition-colors">
+                            Обойти конкурентов <i
+                                class="fa-solid fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-all"></i>
                         </a>
-
                     </div>
                 </div>
 
-                <!-- Column 2: Product -->
-                <div>
-                    <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-wider">Кому полезно</h4>
-                    <ul class="space-y-4 text-gray-400">
-                        <li><a href="predprinimatel.html" class="hover:text-brand-accent transition">Для
-                                Предпринимателей</a></li>
-                        <li><a href="marketolog.html" class="hover:text-brand-accent transition">Для Маркетологов</a>
-                        </li>
-                        <li><a href="human.html" class="hover:text-brand-accent transition">Хочу создавать сайты</a>
-                        </li>
+                <!-- ROI Widget (Concept 1: Money Focus) -->
+                <div id="roi-widget"
+                    class="glass-panel p-6 sm:p-8 rounded-xl border border-white/10 shadow-2xl relative reveal hover:border-accent/30 transition-all duration-500 group">
+                    <!-- Glow Effect -->
+                    <div
+                        class="absolute -top-10 -right-10 w-64 h-64 bg-accent/10 blur-3xl rounded-full -z-10 group-hover:bg-accent/20 transition-all duration-1000">
+                    </div>
 
+                    <h3
+                        class="font-grotesk text-xl mb-6 text-white border-b border-white/10 pb-4 flex justify-between items-center">
+                        <span class="tracking-widest text-sm uppercase font-bold text-gray-400">Эффективность
+                            вложений</span>
+                        <i class="fa-solid fa-sack-dollar text-accent text-lg"></i>
+                    </h3>
+
+                    <div class="space-y-8 relative">
+                        <!-- Vertical Line Connector -->
+                        <!-- <div class="absolute left-[13px] top-8 bottom-8 w-[2px] bg-white/5 -z-10"></div> -->
+
+                        <!-- Old Way: Burning Money -->
+                        <div class="relative">
+                            <div class="flex justify-between items-end mb-2">
+                                <span class="text-xs font-mono text-gray-500 uppercase">Обычный сайт (Tilda/WP)</span>
+                                <span class="text-danger font-bold text-sm">-80% Бюджета</span>
+                            </div>
+                            <!-- Bar Container -->
+                            <div
+                                class="h-12 bg-white/5 rounded-lg overflow-hidden relative border border-white/5 flex items-center">
+                                <!-- Burning Part -->
+                                <div
+                                    class="absolute right-0 top-0 bottom-0 w-[80%] bg-gradient-to-l from-danger/20 to-transparent border-l border-danger/30 flex items-center justify-end px-3">
+                                    <i class="fa-solid fa-fire text-danger animate-pulse mr-2"></i>
+                                    <span class="text-xs text-danger font-bold hidden sm:inline">СЛИВ БЮДЖЕТА</span>
+                                </div>
+                                <span class="z-10 px-4 text-xs text-gray-400 font-mono">100 000 ₽ <i
+                                        class="fa-solid fa-arrow-right mx-1 opacity-50"></i> 0 Заявок</span>
+                            </div>
+                            <p class="text-[10px] text-gray-600 mt-2 text-right">Деньги уходят на "красивые картинки", а
+                                не продажи.</p>
+                        </div>
+
+                        <!-- Antigravity Way: ROI -->
+                        <div class="relative">
+                            <div class="flex justify-between items-end mb-2">
+                                <span class="text-xs font-mono text-accent uppercase font-bold">Antigravity Stack</span>
+                                <span class="text-success font-bold text-lg leading-none">x3 ROI</span>
+                            </div>
+                            <!-- Bar Container -->
+                            <div
+                                class="h-14 bg-surface2 rounded-lg overflow-hidden relative border border-accent/30 shadow-[0_0_15px_rgba(0,255,255,0.1)] flex items-center">
+                                <!-- Growth Part -->
+                                <div
+                                    class="absolute left-0 top-0 bottom-0 w-full bg-gradient-to-r from-accent/10 to-accent/20 border-r border-accent flex items-center justify-between px-4">
+                                    <div class="flex items-center">
+                                        <span
+                                            class="w-8 h-8 rounded-full bg-accent text-black flex items-center justify-center font-bold text-xs mr-3 shadow-lg"><i
+                                                class="fa-solid fa-check"></i></span>
+                                        <span class="text-white font-bold text-sm">Прибыль</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-accent font-mono font-bold text-lg">300 000 ₽</div>
+                                        <div class="text-[9px] text-accent/60 uppercase tracking-wider">Чистыми за 7
+                                            дней</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Comparison Section -->
+    <section id="comparison" class="py-20 bg-surface border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-grotesk text-3xl sm:text-5xl font-bold mb-4 text-white">Почему агентства <span
+                        class="text-danger">ненавидят</span> мой подход?</h2>
+                <p class="text-gray-400">Сравните факты. Удар под дых старому рынку.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+                <!-- Old Way -->
+                <div class="p-8 border border-white/5 bg-bg/50 rounded-lg relative overflow-hidden group">
+                    <h3 class="text-2xl font-bold text-gray-500 mb-6 uppercase">Классика / Конструкторы</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start opacity-60">
+                            <span class="text-danger mr-3 mt-1"><i class="fa-solid fa-xmark"></i></span>
+                            <div>
+                                <strong class="block text-white">Владение кодом: Аренда</strong>
+                                <span class="text-sm text-gray-500">Перестали платить — сайт отключили. Вы
+                                    заложник.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start opacity-60">
+                            <span class="text-danger mr-3 mt-1"><i class="fa-solid fa-xmark"></i></span>
+                            <div>
+                                <strong class="block text-white">SEO: Мусорный код</strong>
+                                <span class="text-sm text-gray-500">Google ненавидит тяжелые скрипты
+                                    конструкторов.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start opacity-60">
+                            <span class="text-danger mr-3 mt-1"><i class="fa-solid fa-xmark"></i></span>
+                            <div>
+                                <strong class="block text-white">Сроки: Бюрократия</strong>
+                                <span class="text-sm text-gray-500">"Нам нужно 2 недели на дизайн-концепт".</span>
+                            </div>
+                        </li>
                     </ul>
                 </div>
 
-                <!-- Column 3: Resources -->
-                <div>
-                    <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-wider">Ресурсы</h4>
-                    <ul class="space-y-4 text-gray-400">
-                        <li><a href="prompts.html" class="hover:text-brand-accent transition">Библиотека промптов</a>
+                <!-- Antigravity Way -->
+                <div class="p-8 border border-accent/20 bg-surface2 rounded-lg relative overflow-hidden neon-border">
+                    <div class="absolute top-0 right-0 p-4 text-accent/20"><i class="fa-solid fa-rocket text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-6 uppercase">Antigravity Stack</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <span class="text-accent mr-3 mt-1"><i class="fa-solid fa-check"></i></span>
+                            <div>
+                                <strong class="block text-white">Владение: 100% Ваше</strong>
+                                <span class="text-sm text-gray-400">Чистый код. Никаких абонентских плат. Вы
+                                    хозяин.</span>
+                            </div>
                         </li>
-                        <li><a href="base.html" class="hover:text-brand-accent transition">База знаний</a></li>
-                        <li><a href="ai.html" class="hover:text-brand-accent transition">AI-инструменты 2026</a></li>
-                        <li><a href="cabinet/login.html"
-                                class="text-brand-accent hover:text-white transition font-bold"><i
-                                    class="fa-solid fa-lock mr-2"></i>Личный Кабинет</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 4: Legal -->
-                <div>
-                    <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-wider">Документы</h4>
-                    <ul class="space-y-4 text-gray-400 text-sm">
-                        <li><a href="offer.html" class="hover:text-brand-accent transition">Публичная оферта</a></li>
-                        <li><a href="privacy.html" class="hover:text-brand-accent transition">Политика
-                                конфиденциальности</a></li>
-                        <li><a href="consent.html" class="hover:text-brand-accent transition">Согласие на рассылку</a>
+                        <li class="flex items-start">
+                            <span class="text-accent mr-3 mt-1"><i class="fa-solid fa-check"></i></span>
+                            <div>
+                                <strong class="block text-white">SEO: Стерильная архитектура</strong>
+                                <span class="text-sm text-gray-400">Индексация за 48 часов. Мгновенная загрузка.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent mr-3 mt-1"><i class="fa-solid fa-check"></i></span>
+                            <div>
+                                <strong class="block text-white">Сроки: Скорость света</strong>
+                                <span class="text-sm text-gray-400">Готовый MVP на 3-й день благодаря AI-агентам.</span>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Bottom Bar -->
+    <!-- 3. Legend (Transformation) & Photo -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-accent/5 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center reveal">
+                <!-- Text -->
+                <div>
+                    <span class="text-accent text-sm font-bold tracking-widest uppercase mb-4 block">Manifesto</span>
+                    <h2 class="font-grotesk text-3xl sm:text-4xl font-bold mb-8 leading-snug text-white">
+                        "Не просто делаю сайты — дирижирую технологиями будущего."
+                    </h2>
+                    <div class="prose prose-invert prose-lg text-gray-400 space-y-6">
+                        <p>
+                            10 лет я смотрел, как бизнес сжигает бюджеты на "красивые сайты", которые не продают.
+                            Вам не нужны отчеты и макеты. Вам нужны <span class="text-white font-bold">деньги в
+                                кассе</span>. Точка.
+                        </p>
+                        <p>
+                            Я объявил войну ленивым разработчикам и конструкторам-тормозам.
+                            <span class="text-white font-bold">Antigravity</span> — это не просто код. Это ваше
+                            <strong>нечестное преимущество</strong>. Пока другие ждут загрузки, вы уже закрываете
+                            сделку.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Photo -->
+                <div class="relative group">
+                    <div
+                        class="absolute inset-0 bg-accent/20 blur-2xl rounded-2xl opacity-0 group-hover:opacity-100 transition duration-700">
+                    </div>
+                    <img src="assets/img/photo.jpg" alt="Vlad Antigravity"
+                        class="relative w-full max-w-md mx-auto rounded-xl border border-white/10 shadow-2xl transition duration-700 object-cover">
+                    <!-- Badge -->
+                    <div
+                        class="absolute -bottom-4 -right-4 bg-black border border-accent text-accent px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg">
+                        Digital Architect
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Cases (3 Pillars) -->
+    <section id="cases" class="py-20 bg-surface border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-grotesk text-4xl font-bold mb-4 text-center text-white">ФАКТЫ ВМЕСТО ОБЕЩАНИЙ</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Реальные примеры того, как технология
+                Antigravity захватывает рынок.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+                <!-- WinWin -->
+                <div
+                    class="group relative bg-bg p-6 border border-white/10 hover:border-accent/50 transition-all duration-300">
+                    <div
+                        class="h-40 bg-gray-900 mb-6 flex items-center justify-center border border-white/5 relative overflow-hidden">
+                        <i
+                            class="fa-solid fa-truck text-4xl text-gray-700 group-hover:text-white transition-colors"></i>
+                        <span class="absolute bottom-2 right-2 font-bold text-gray-800">WINWIN</span>
+                    </div>
+                    <div class="text-xs font-mono text-accent mb-2">ЛОГИСТИКА</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Перехват трафика</h3>
+                    <p class="text-sm text-gray-400 mb-4">Идеальная SEO-структура, собранная за 10 дней вместо 3
+                        месяцев.</p>
+                    <div class="flex items-center text-xs text-gray-500">
+                        <span class="w-2 h-2 rounded-full bg-success mr-2"></span> Результат: Топ-3
+                    </div>
+                </div>
+
+                <!-- Manuel -->
+                <div
+                    class="group relative bg-bg p-6 border border-white/10 hover:border-accent/50 transition-all duration-300">
+                    <div
+                        class="h-40 bg-gray-900 mb-6 flex items-center justify-center border border-white/5 relative overflow-hidden">
+                        <i
+                            class="fa-solid fa-person-fencing text-4xl text-gray-700 group-hover:text-white transition-colors"></i>
+                        <span class="absolute bottom-2 right-2 font-bold text-gray-800">MANUEL</span>
+                    </div>
+                    <div class="text-xs font-mono text-accent mb-2">СПОРТ</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Академия фехтования</h3>
+                    <p class="text-sm text-gray-400 mb-4">Премиальный UX. Родители записываются без звонка. 0% воды.</p>
+                    <div class="flex items-center text-xs text-gray-500">
+                        <span class="w-2 h-2 rounded-full bg-success mr-2"></span> Результат: Запись полная
+                    </div>
+                </div>
+
+                <!-- ATES -->
+                <div
+                    class="group relative bg-bg p-6 border border-white/10 hover:border-accent/50 transition-all duration-300">
+                    <div
+                        class="h-40 bg-gray-900 mb-6 flex items-center justify-center border border-white/5 relative overflow-hidden">
+                        <i
+                            class="fa-solid fa-industry text-4xl text-gray-700 group-hover:text-white transition-colors"></i>
+                        <span class="absolute bottom-2 right-2 font-bold text-gray-800">ATES</span>
+                    </div>
+                    <div class="text-xs font-mono text-accent mb-2">B2B ПРОМЫШЛЕННОСТЬ</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Газовые котельные</h3>
+                    <p class="text-sm text-gray-400 mb-4">Выглядит на 1.5 млн ₽, стоил в 10 раз дешевле. Статус эксперта
+                        №1.</p>
+                    <div class="flex items-center text-xs text-gray-500">
+                        <span class="w-2 h-2 rounded-full bg-success mr-2"></span> Результат: Имидж лидера
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Roadmap -->
+    <section id="roadmap" class="py-20 overflow-hidden text-center reveal">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="font-grotesk text-4xl font-bold mb-16 text-white">Roadmap: <span class="text-accent">7 дней до
+                    доминирования</span></h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+                <div class="p-4 border-l-2 border-accent">
+                    <div class="font-bold text-xl text-white">День 1</div>
+                    <div class="text-sm text-gray-400">Аудит и Смыслы</div>
+                </div>
+                <div class="p-4 border-l-2 border-white/20">
+                    <div class="font-bold text-xl text-white">День 2-3</div>
+                    <div class="text-sm text-gray-400">UI & Архитектура (AI)</div>
+                </div>
+                <div class="p-4 border-l-2 border-white/20">
+                    <div class="font-bold text-xl text-white">День 4-5</div>
+                    <div class="text-sm text-gray-400">SEO-сборка (HTML/JS)</div>
+                </div>
+                <div class="p-4 border-l-2 border-success">
+                    <div class="font-bold text-xl text-white">День 7</div>
+                    <div class="text-sm text-gray-400">Запуск Трафика</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Pricing (Ladder) -->
+    <section id="pricing" class="py-20 bg-surface border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-grotesk text-4xl font-bold mb-12 text-center text-white">СТОИМОСТЬ ДОМИНИРОВАНИЯ</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start reveal">
+                <!-- Start -->
+                <div class="p-8 border border-white/10 bg-bg rounded-lg">
+                    <h3 class="text-2xl font-bold text-white mb-2">Быстрый старт</h3>
+                    <div class="text-3xl font-mono text-gray-400 mb-6">85 000 ₽</div>
+                    <p class="text-sm text-gray-400 mb-8 pb-6 border-b border-white/10">Чистый Landing Page. Для тех,
+                        кому нужно захватить нишу «вчера». Идеален под контекст.</p>
+                    <a href="#contact"
+                        class="block w-full text-center py-3 border border-white text-white font-bold hover:bg-white hover:text-black transition-colors">ВЫБРАТЬ</a>
+                </div>
+
+                <!-- Pro (Gold) -->
+                <div
+                    class="p-8 border-2 border-accent bg-[#080808] rounded-lg transform md:-translate-y-4 shadow-[0_0_30px_rgba(0,255,255,0.1)] relative">
+                    <div
+                        class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-accent text-black px-4 py-1 text-xs font-bold uppercase tracking-widest">
+                        Золотой стандарт</div>
+                    <h3 class="text-2xl font-bold text-white mb-2">SEO-Комбайн</h3>
+                    <div class="text-4xl font-mono text-accent mb-6">150 000 ₽</div>
+                    <p class="text-sm text-gray-300 mb-8 pb-6 border-b border-white/10">Многостраничный сайт под ТОП-10.
+                        Уникальный дизайн. База для органического трафика.</p>
+                    <a href="#contact"
+                        class="block w-full text-center py-3 bg-accent text-black font-bold hover:bg-white transition-colors">ЗАБРАТЬ
+                        РЕЗУЛЬТАТ</a>
+                </div>
+
+                <!-- Scaling -->
+                <div class="p-8 border border-white/10 bg-bg rounded-lg">
+                    <h3 class="text-2xl font-bold text-white mb-2">Захват рынка</h3>
+                    <div class="text-3xl font-mono text-gray-400 mb-6">250 000 ₽</div>
+                    <p class="text-sm text-gray-400 mb-8 pb-6 border-b border-white/10">Сайт + Custom AI Agent.
+                        Обрабатывает лиды и дожимает продажи в мессенджерах 24/7.</p>
+                    <a href="#contact"
+                        class="block w-full text-center py-3 border border-white text-white font-bold hover:bg-white hover:text-black transition-colors">ВЫБРАТЬ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Security/Independence -->
+    <section class="py-20 text-center reveal">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-accent text-4xl mb-6"><i class="fa-solid fa-shield-halved"></i></div>
+            <h2 class="font-grotesk text-3xl font-bold mb-4 text-white">Я не сажаю вас на иглу</h2>
+            <p class="text-gray-400 text-lg mb-8">
+                Вы получаете технологию, а не просто картинку. Либо мы ведем проект за фикс, либо я обучаю вашу команду
+                в <span class="text-white font-bold">Antigravity Lab</span> управлять сайтом через AI-промпты. Вы больше
+                никогда не будете просить программиста «подвинуть кнопку» неделями.
+            </p>
+        </div>
+        <!-- 7b. FAQ & Deliverables -->
+        <section class="py-20 bg-surface border-t border-white/5 relative overflow-hidden">
+            <div class="absolute inset-0 grid-bg z-0 pointer-events-none opacity-30"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+                    <!-- Deliverables (Bento Style) -->
+                    <div class="reveal">
+                        <h3 class="font-grotesk text-2xl font-bold text-white mb-8 flex items-center">
+                            <span
+                                class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent mr-4 border border-accent/20"><i
+                                    class="fa-solid fa-box-open"></i></span>
+                            Что вы получаете на руки?
+                        </h3>
+                        <div class="space-y-4">
+                            <!-- Item 1 -->
+                            <div
+                                class="p-6 bg-surface2 border border-white/5 rounded-xl hover:border-accent/30 transition-all group">
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-success/10 flex items-center justify-center text-success mr-4 mt-1 group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <div>
+                                        <strong class="block text-white text-lg mb-1">Исходный код (100% Your
+                                            IP)</strong>
+                                        <p class="text-sm text-gray-400">Полный архив файлов. Вы не зависите от подписок
+                                            или конструкторов. Это ваш цифровой актив.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div
+                                class="p-6 bg-surface2 border border-white/5 rounded-xl hover:border-accent/30 transition-all group">
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-success/10 flex items-center justify-center text-success mr-4 mt-1 group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <div>
+                                        <strong class="block text-white text-lg mb-1">Видео-инструкция "За 5
+                                            минут"</strong>
+                                        <p class="text-sm text-gray-400">Персональное видео, где я показываю, как менять
+                                            тексты и картинки. Программист не нужен.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div
+                                class="p-6 bg-surface2 border border-white/5 rounded-xl hover:border-accent/30 transition-all group">
+                                <div class="flex items-start">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-success/10 flex items-center justify-center text-success mr-4 mt-1 group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <div>
+                                        <strong class="block text-white text-lg mb-1">Пожизненная гарантия</strong>
+                                        <p class="text-sm text-gray-400">Статический сайт невозможно "сломать"
+                                            обновлением плагина или "взломать" через SQL-инъекцию.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ (Accordion Style Visuals) -->
+                    <div class="reveal delay-200">
+                        <h3 class="font-grotesk text-2xl font-bold text-white mb-8 flex items-center">
+                            <span
+                                class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white mr-4 border border-white/20"><i
+                                    class="fa-solid fa-circle-question"></i></span>
+                            Честные ответы
+                        </h3>
+                        <div class="space-y-4">
+                            <!-- Q1 -->
+                            <div class="bg-surface2 p-6 rounded-xl border border-white/5 relative overflow-hidden">
+                                <i class="fa-solid fa-quote-right absolute top-4 right-4 text-white/5 text-4xl"></i>
+                                <h4 class="font-bold text-white mb-3 text-lg">А если мне нужно поменять цены?</h4>
+                                <p class="text-gray-400 leading-relaxed">Вам не нужен разработчик. Вы просто открываете
+                                    файл (как в Word) и меняете цифру. Я покажу как в видео-инструкции.</p>
+                            </div>
+                            <!-- Q2 -->
+                            <div class="bg-surface2 p-6 rounded-xl border border-white/5 relative overflow-hidden">
+                                <i class="fa-solid fa-quote-right absolute top-4 right-4 text-white/5 text-4xl"></i>
+                                <h4 class="font-bold text-white mb-3 text-lg">Почему так быстро (7 дней)?</h4>
+                                <p class="text-gray-400 leading-relaxed">Я не изобретаю велосипед. Я беру лучшие <span
+                                        class="text-accent">high-performance компоненты</span> и собираю их под вашу
+                                    задачу. Это конвейер, а не творческие муки.</p>
+                            </div>
+                            <!-- Q3 -->
+                            <div class="bg-surface2 p-6 rounded-xl border border-white/5 relative overflow-hidden">
+                                <h4 class="font-bold text-white mb-3 text-lg">Что нужно для старта?</h4>
+                                <p class="text-gray-400 leading-relaxed">Только ваше желание забрать рынок. Тексты
+                                    напишем, фото подберем. Оставляйте заявку.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Final CTA -->
+        <footer id="contact" class="bg-bg pt-20 pb-10 border-t border-white/10 relative overflow-hidden">
+            <!-- Background Glow -->
             <div
-                class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
-                <div class="mb-4 md:mb-0">
-                    &copy; 2026 Antigravity Lab. Все права защищены.
-                </div>
-                <div class="flex items-center space-x-1">
-                    <span>Designed by</span>
-                    <i class="fa-solid fa-robot text-brand-accent mx-1"></i>
-                    <span class="text-gray-400">Artificial Intelligence</span>
+                class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-3xl h-64 bg-accent/5 blur-[100px] pointer-events-none">
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal relative z-10">
+
+                <h2 class="font-grotesk text-4xl sm:text-6xl font-bold mb-6 text-white leading-tight">
+                    Ваш сайт — это <span class="text-success">актив</span> <br> или <span class="text-danger">дыра в
+                        бюджете</span>?
+                </h2>
+                <p class="text-gray-400 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+                    Перестаньте спонсировать конкурентов своим бездействием. <br>
+                    <span class="text-white font-bold">Получите стратегию технологического доминирования.</span>
+                </p>
+
+                <form id="leadForm" action="https://formsubmit.co/vlk-9494@yandex.ru" method="POST"
+                    class="max-w-md mx-auto space-y-4 mb-20 relative">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New Lead: Antigravity Digital Architect">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://vladmarketolog.ru/#contact">
+
+                    <div class="group">
+                        <input type="text" name="name" placeholder="Имя" required
+                            class="w-full bg-surface2 border border-white/10 p-5 text-white focus:border-accent focus:bg-surface focus:outline-none transition-all placeholder-gray-600 rounded-xl text-lg hover:border-white/20">
+                    </div>
+                    <div class="group">
+                        <input type="tel" name="phone" placeholder="Телефон" required
+                            class="w-full bg-surface2 border border-white/10 p-5 text-white focus:border-accent focus:bg-surface focus:outline-none transition-all placeholder-gray-600 rounded-xl text-lg hover:border-white/20">
+                    </div>
+                    <div class="group">
+                        <input type="url" name="site" placeholder="Ваш текущий сайт (если есть)"
+                            class="w-full bg-surface2 border border-white/10 p-5 text-white focus:border-accent focus:bg-surface focus:outline-none transition-all placeholder-gray-600 rounded-xl text-lg hover:border-white/20">
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-white text-black font-bold uppercase py-5 rounded-xl hover:bg-accent hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group">
+                        <span class="relative z-10 btn-text tracking-widest text-lg">Обсудить проект</span>
+                        <div
+                            class="absolute inset-0 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500">
+                        </div>
+                        <i class="fa-solid fa-spinner fa-spin ml-2 hidden loading-icon relative z-10"></i>
+                    </button>
+
+                    <!-- Success Message (Hidden by default) -->
+                    <div id="form-success"
+                        class="hidden absolute inset-0 bg-surface2 border border-accent/20 rounded-xl flex flex-col items-center justify-center text-center z-20 glass-panel">
+                        <i
+                            class="fa-solid fa-check-circle text-5xl text-success mb-4 shadow-[0_0_20px_rgba(57,255,20,0.4)] rounded-full"></i>
+                        <h3 class="text-2xl font-bold text-white mb-2">Заявка принята!</h3>
+                        <p class="text-gray-400">Мы свяжемся с вами в течение 15 минут.</p>
+                    </div>
+                </form>
+
+                <div
+                    class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-mono">
+                    <div class="mb-4 md:mb-0 opacity-50 hover:opacity-100 transition-opacity">
+                        &copy; 2026 Antigravity Digital Architect.
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-success animate-pulse"></span>
+                        System Status: <span class="text-success">ONLINE</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <script>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-
-                // Skip if only '#'
-                if (targetId === '#') return;
-
-                // Safely try to find the element
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                } else {
-                    console.warn('Target element not found:', targetId);
-                }
-
-                // Close mobile menu if open
-                const menu = document.getElementById('mobile-menu');
-                if (!menu.classList.contains('hidden')) {
-                    menu.classList.add('hidden');
-                }
-            });
-        });
-
-        // Toggle Mobile Menu
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        function scrollToPricing() {
-            document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Video Modal Functions
-        function openVideoModal() {
-            const modal = document.getElementById('video-modal');
-            if (modal) {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeVideoModal() {
-            const modal = document.getElementById('video-modal');
-            if (modal) {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = '';
-
-                // Stop video
-                const iframe = modal.querySelector('iframe');
-                if (iframe) {
-                    const src = iframe.src;
-                    iframe.src = src;
-                }
-            }
-        }
-    </script>
-
-    <!-- Video Modal -->
-    <div id="video-modal"
-        class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm p-4"
-        onclick="closeVideoModal()">
-        <div class="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10"
-            onclick="event.stopPropagation()">
-            <button onclick="closeVideoModal()"
-                class="absolute top-4 right-4 z-10 text-white/50 hover:text-white transition">
-                <i class="fa-solid fa-xmark text-2xl"></i>
+        <!-- AI Chatbot (Fixed) -->
+        <div class="fixed bottom-6 right-6 z-50">
+            <div id="ai-chat-bubble"
+                class="hidden absolute bottom-16 right-0 w-72 glass-panel p-4 rounded-xl border border-accent/30 shadow-2xl origin-bottom-right transition-all">
+                <div class="flex items-center gap-3 mb-3 pb-3 border-b border-white/10">
+                    <div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent"><i
+                            class="fa-solid fa-robot"></i></div>
+                    <div>
+                        <div class="text-xs font-bold text-white">Antigravity AI</div>
+                        <div class="text-[10px] text-success flex items-center">Online</div>
+                    </div>
+                    <button id="close-chat" class="ml-auto text-gray-500 hover:text-white"><i
+                            class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="text-xs text-gray-300 space-y-2">
+                    <p class="bg-white/5 p-2 rounded">Привет! Я помогу выбрать тариф.</p>
+                    <a href="#pricing"
+                        class="block text-center bg-accent/10 text-accent py-2 rounded hover:bg-accent/20">Подобрать
+                        тариф</a>
+                </div>
+            </div>
+            <button id="ai-chat-toggle"
+                class="w-14 h-14 rounded-full bg-accent text-black text-2xl flex items-center justify-center shadow-[0_0_20px_rgba(0,255,255,0.5)] hover:scale-110 transition">
+                <i class="fa-solid fa-message"></i>
             </button>
-            <iframe class="w-full h-full" src="https://rutube.ru/play/embed/1e2fdc4e418eb075c4e26d0f0cfb6390"
-                frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen
-                allowFullScreen></iframe>
         </div>
-    </div>
+
+        <!-- Scripts -->
+        <script>
+            // Reveal Animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            // Speed Widget Animation
+            const widget = document.getElementById('speed-widget');
+            if (widget) {
+                const speedObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            document.getElementById('bar-antigravity').style.width = '100%';
+                            // Simple counter effect could be added here
+                        }
+                    });
+                });
+                speedObserver.observe(widget);
+            }
+
+            // Chat
+            document.getElementById('ai-chat-toggle').addEventListener('click', () => {
+                document.getElementById('ai-chat-bubble').classList.toggle('hidden');
+            });
+            document.getElementById('close-chat').addEventListener('click', () => {
+                document.getElementById('ai-chat-bubble').classList.add('hidden');
+            });
+
+            // Mobile Menu
+            document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+        </script>
 </body>
 
 </html>
