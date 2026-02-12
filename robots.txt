@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /assets/private/
 
-Sitemap: https://antigravity.club/sitemap.xml
+Sitemap: https://vladmarketolog.ru/sitemap.xml
