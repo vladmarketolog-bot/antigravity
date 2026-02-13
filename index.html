@@ -766,7 +766,7 @@
                     <i
                         class="fa-solid fa-check-circle text-5xl text-success mb-4 shadow-[0_0_20px_rgba(57,255,20,0.4)] rounded-full"></i>
                     <h3 class="text-2xl font-bold text-white mb-2">Заявка принята!</h3>
-                    <p class="text-gray-400">Мы свяжемся с вами в течение 15 минут.</p>
+                    <p class="text-gray-400">Спасибо, скоро напишу вам в телеграм.</p>
                 </div>
             </form>
         </div>
@@ -828,24 +828,7 @@
         </div>
     </footer><!-- Scripts -->
     <script>
-        // Reveal Animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-
-
-
-
-        // Mobile Menu
-        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
 
         // UTM & Referrer Tracking
         document.addEventListener('DOMContentLoaded', () => {
@@ -861,6 +844,7 @@
             document.getElementById('landing_page').value = window.location.href;
         });
     </script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 
