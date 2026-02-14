@@ -141,6 +141,68 @@ app.get('/retailers', async (req, res) => {
     }
 });
 
+// Email Configuration
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+    host: 'smtp.yandex.ru',
+    port: 465,
+    secure: true, // true for 465, false for other ports
+    auth: {
+        user: process.env.EMAIL_USER || 'vlk-9494@yandex.ru',
+        pass: process.env.EMAIL_PASS
+    }
+});
+
+/**
+ * Endpoint to send lead from contact form
+ * POST /send-lead
+ */
+app.post('/send-lead', async (req, res) => {
+    try {
+        console.log('Received lead submission:', req.body);
+
+        // Extract fields. The generic form might send different keys, 
+        // but based on index.html: name, phone, site
+        // If formData is sent as multipart/form-data, express.json() won't parse it automatically 
+        // without multer. However, front-end fetches with JSON body usually.
+        // Let's ensure frontend sends JSON or use a parser. 
+        // For simplicity, we will assume the frontend sends JSON. 
+        // IF frontend sends FormData, we need 'multer' or 'express-fileupload'.
+        // To avoid adding more dependencies, let's update frontend to send JSON.
+
+        const { name, phone, site } = req.body;
+
+        if (!phone) {
+            return res.status(400).json({ success: false, message: 'Phone is required' });
+        }
+
+        const mailOptions = {
+            from: '"Antigravity Bot" <vlk-9494@yandex.ru>',
+            to: 'vlk-9494@yandex.ru',
+            subject: `🔥 Новый Лид: ${name || 'Без имени'}`,
+            html: `
+                <h2>Новая заявка с сайта vladmarketolog.ru</h2>
+                <p><strong>Имя:</strong> ${name || 'Не указано'}</p>
+                <p><strong>Телефон:</strong> <a href="tel:${phone}">${phone}</a></p>
+                <p><strong>Сайт:</strong> ${site || 'Не указан'}</p>
+                <br>
+                <hr>
+                <p><small>Отправлено через Antigravity Payment Server</small></p>
+            `
+        };
+
+        const info = await transporter.sendMail(mailOptions);
+        console.log('Email sent: %s', info.messageId);
+
+        res.json({ success: true, message: 'Lead sent successfully' });
+
+    } catch (error) {
+        console.error('Error sending email:', error);
+        res.status(500).json({ success: false, message: 'Failed to send email', error: error.message });
+    }
+});
+
 app.listen(PORT, () => {
-    console.log(`Payment server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });

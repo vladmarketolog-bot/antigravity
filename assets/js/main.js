@@ -117,54 +117,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('leadForm');
     const successMsg = document.getElementById('form-success');
 
-    /*
-        if (form) {
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-    
-                const btn = form.querySelector('button');
-                const btnText = form.querySelector('.btn-text');
-                const loadingIcon = form.querySelector('.loading-icon');
-    
-                // Loading State
-                btnText.classList.add('hidden');
-                loadingIcon.classList.remove('hidden');
-                btn.disabled = true;
-    
-                const formData = new FormData(form);
-    
-                fetch('https://formsubmit.co/ajax/vlk-9494@yandex.ru', {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json'
-                    },
-                    body: formData
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success === "true" || data.success === true) {
-                            // Success State
-                            successMsg.classList.remove('hidden');
-                            successMsg.classList.add('flex'); // Ensure flex display for centering
-                            form.reset();
-                        } else {
-                            alert('Ошибка отправки. Пожалуйста, напишите в Telegram: @vladmarketolog');
-                            resetBtn();
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Ошибка отправки. Пожалуйста, напишите в Telegram: @vladmarketolog');
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const btn = form.querySelector('button');
+            const btnText = form.querySelector('.btn-text');
+            const loadingIcon = form.querySelector('.loading-icon');
+
+            // Loading State
+            btnText.classList.add('hidden');
+            loadingIcon.classList.remove('hidden');
+            btn.disabled = true;
+
+            const formData = new FormData(form);
+            const dataObject = Object.fromEntries(formData.entries());
+
+            fetch('/send-lead', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataObject)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Success State
+                        successMsg.classList.remove('hidden');
+                        successMsg.classList.add('flex');
+                        form.reset();
+                    } else {
+                        console.error('Server error:', data.message);
+                        alert('Ошибка отправки: ' + (data.message || 'Сервер недоступен'));
                         resetBtn();
-                    });
-    
-                function resetBtn() {
-                    btnText.classList.remove('hidden');
-                    loadingIcon.classList.add('hidden');
-                    btn.disabled = false;
-                }
-            });
-        }
-    */
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Ошибка сети или сервера. Проверьте консоль.');
+                    resetBtn();
+                });
+
+            function resetBtn() {
+                btnText.classList.remove('hidden');
+                loadingIcon.classList.add('hidden');
+                btn.disabled = false;
+            }
+        });
+    }
 
 });
