@@ -125,37 +125,46 @@ document.addEventListener('DOMContentLoaded', () => {
             const btnText = form.querySelector('.btn-text');
             const loadingIcon = form.querySelector('.loading-icon');
 
+            // Google Apps Script Web App URL
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbywidUlqB9KdP1dVo_8soPyd3z1R-6eTc9QXkK38dy0c_vx19RGO40SMDWsCcQysT0-/exec';
+
             // Loading State
             btnText.classList.add('hidden');
             loadingIcon.classList.remove('hidden');
             btn.disabled = true;
 
             const formData = new FormData(form);
-            const dataObject = Object.fromEntries(formData.entries());
+            // Google Apps Script usually works best with x-www-form-urlencoded or plain query params for .parameter access
+            // Or JSON if we parse input. My provided script uses e.parameter, so FormData (multipart) might not work directly/easily without parsing logic.
+            // Let's send as JSON and assume the script parses it or use URLSearchParams.
+            // Actually, the simplest for GAS e.parameter is form-urlencoded.
 
-            fetch('/send-lead', {
+            const params = new URLSearchParams();
+            for (const pair of formData.entries()) {
+                params.append(pair[0], pair[1]);
+            }
+
+            fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(dataObject)
+                body: params
             })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.success) {
+                    if (data.result === "success") {
                         // Success State
                         successMsg.classList.remove('hidden');
                         successMsg.classList.add('flex');
                         form.reset();
                     } else {
-                        console.error('Server error:', data.message);
-                        alert('Ошибка отправки: ' + (data.message || 'Сервер недоступен'));
-                        resetBtn();
+                        throw new Error(data.error || 'Unknown error');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('Ошибка сети или сервера. Проверьте консоль.');
+                    // For GAS 'no-cors' requests (if we used that), we wouldn't see the response. 
+                    // But here we hope for a CORS-enabled response (ContentService).
+                    // If it fails, we fall back to generic alert.
+                    alert('Ошибка отправки. Пожалуйста, напишите в Telegram: @vladmarketolog');
                     resetBtn();
                 });
 
