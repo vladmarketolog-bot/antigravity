@@ -134,6 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             fetch('https://formsubmit.co/ajax/vlk-9494@yandex.ru', {
                 method: 'POST',
+                headers: {
+                    'Accept': 'application/json'
+                },
                 body: formData
             })
                 .then(response => response.json())
