@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const loadingIcon = form.querySelector('.loading-icon');
 
             // Google Apps Script Web App URL
-            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbywidUlqB9KdP1dVo_8soPyd3z1R-6eTc9QXkK38dy0c_vx19RGO40SMDWsCcQysT0-/exec';
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxRzS80V57qhPd_msc8lSumxlq9v5Iwg6OIG184EoDrhiWwJYcCDSJuKbpiD7qHqOWM8w/exec';
 
             // Loading State
             btnText.classList.add('hidden');
@@ -134,11 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
 
             const formData = new FormData(form);
-            // Google Apps Script usually works best with x-www-form-urlencoded or plain query params for .parameter access
-            // Or JSON if we parse input. My provided script uses e.parameter, so FormData (multipart) might not work directly/easily without parsing logic.
-            // Let's send as JSON and assume the script parses it or use URLSearchParams.
-            // Actually, the simplest for GAS e.parameter is form-urlencoded.
-
             const params = new URLSearchParams();
             for (const pair of formData.entries()) {
                 params.append(pair[0], pair[1]);
@@ -146,9 +141,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                body: params
+                body: params,
+                mode: 'no-cors' // IMPORTANT: This prevents CORS errors but makes response 'opaque'
             })
-                .then(response => response.json())
+                .then(response => {
+                    // With no-cors, we can't check response.ok or response.json()
+                    // We assume if the promise resolves, the request was sent.
+                    // This is the most reliable way for GAS from client-side.
+                    if (response.type === 'opaque' || response.ok) {
+                        return { result: "success" };
+                    }
+                    throw new Error('Network response was not ok');
+                })
                 .then(data => {
                     if (data.result === "success") {
                         // Success State
