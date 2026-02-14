@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /assets/private/
+Disallow: /payment-server/
 
 Sitemap: https://vladmarketolog.ru/sitemap.xml
