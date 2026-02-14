@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity | База Знаний</title>
+    <!-- Auth Check -->
+    <script>
+        if (!localStorage.getItem('ag_auth')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <script src="../assets/js/tailwindcss.js"></script>
+    <link href="../assets/css/fontawesome.css" rel="stylesheet">
+    <link href="../assets/css/google-fonts.css" rel="stylesheet">
+    <link href="cabinet.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0C10',
+                            accent: '#66FCF1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: white;
+        }
+
+        /* Custom Typography for Articles */
+        .article-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #d1d5db;
+            /* gray-300 */
+        }
+
+        .article-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #d1d5db;
+        }
+
+        .article-content ul li::before {
+            content: "•";
+            color: #66FCF1;
+            /* brand-accent */
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .article-content strong {
+            color: white;
+            font-weight: 600;
+        }
+
+        .article-content code {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #66FCF1;
+            padding: 0.2em 0.4em;
+            border-radius: 0.25rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #66FCF1;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #9ca3af;
+            /* gray-400 */
+            margin: 1.5rem 0;
+            background: rgba(102, 252, 241, 0.05);
+            padding: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="border-b border-white/10 bg-[#0B0C10]/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-gray-400 hover:text-white transition">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span class="text-sm font-bold">Назад в Кабинет</span>
+            </a>
+            <div class="flex items-center space-x-3">
+                <span class="font-display font-bold tracking-wider">ANTIGRAVITY <span
+                        class="text-brand-accent">WIKI</span></span>
+            </div>
+            <div class="w-20"></div>
+        </div>
+    </nav>
+
+    <div id="articleModal" class="fixed inset-0 z-[100] hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeArticle()"></div>
+
+        <!-- Modal Content -->
+        <div class="absolute inset-y-0 right-0 w-full md:w-[800px] bg-[#0B0C10] border-l border-white/10 shadow-2xl transform transition duration-300 translate-x-full overflow-y-auto"
+            id="articlePanel">
+            <button onclick="closeArticle()"
+                class="absolute top-6 right-6 text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 p-2 rounded-full transition z-10">
+                <i class="fa-solid fa-xmark text-xl w-6 h-6 flex items-center justify-center"></i>
+            </button>
+
+            <!-- Article Header -->
+            <div class="relative h-64 overflow-hidden">
+                <div id="modalImage" class="absolute inset-0 bg-brand-accent/20"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B0C10] to-transparent"></div>
+                <div class="absolute bottom-6 left-8 right-8">
+                    <span id="modalTag"
+                        class="text-xs font-bold bg-brand-accent text-black px-2 py-1 rounded uppercase tracking-wider mb-3 inline-block">TAG</span>
+                    <h1 id="modalTitle" class="text-3xl md:text-4xl font-display font-bold text-white leading-tight">
+                        Title</h1>
+                </div>
+            </div>
+
+            <!-- Article Body -->
+            <div class="p-8 md:p-12">
+                <div class="flex items-center space-x-6 text-sm text-gray-400 mb-8 border-b border-white/5 pb-8">
+                    <span><i class="fa-regular fa-clock mr-2"></i> <span id="modalTime">15 мин</span></span>
+                    <span><i class="fa-solid fa-user-edit mr-2"></i> Vlad Antigravity</span>
+                </div>
+
+                <div id="modalContent" class="article-content">
+                    <!-- Content injected here -->
+                </div>
+
+                <!-- CTA -->
+                <div class="mt-12 p-8 bg-brand-accent/5 border border-brand-accent/20 rounded-2xl text-center">
+                    <h3 class="text-xl font-bold mb-2">Хотите внедрить это?</h3>
+                    <p class="text-gray-400 mb-6">Перейдите в библиотеку промптов и найдите соответствующего агента.</p>
+                    <a href="library.html"
+                        class="inline-block bg-brand-accent text-black font-bold px-8 py-3 rounded-full hover:bg-white transition">Перейти
+                        в Библиотеку</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container for Content -->
+    <div class="container mx-auto px-6 py-12">
+        <h1 class="text-3xl font-display font-bold mb-8">Секретные Материалы</h1>
+        <div id="app-container">
+            <!-- Rendered by JS -->
+        </div>
+    </div>
+
+    <!-- Load Data -->
+    <script src="knowledge_db.js"></script>
+
+    <script>
+        const container = document.getElementById('app-container');
+        const modal = document.getElementById('articleModal');
+        const panel = document.getElementById('articlePanel');
+
+        // Categories
+        const CATEGORIES = {
+            'build': { title: 'Создание Продуктов (Code & No-Code)', icon: 'fa-hammer' },
+            'grow': { title: 'Трафик и Маркетинг', icon: 'fa-rocket' },
+            'money': { title: 'Продажи и Бизнес', icon: 'fa-sack-dollar' }
+        };
+
+        function renderKnowledge() {
+            let html = '';
+
+            // Group by category
+            const grouped = {};
+            KNOWLEDGE_DB.forEach(item => {
+                if (!grouped[item.category]) grouped[item.category] = [];
+                grouped[item.category].push(item);
+            });
+
+            // Render Groups
+            for (const [catKey, items] of Object.entries(grouped)) {
+                const catMeta = CATEGORIES[catKey] || { title: 'Другое', icon: 'fa-folder' };
+
+                html += `
+                    <h2 class="text-xl font-bold text-gray-500 uppercase tracking-widest mb-6 border-b border-white/10 pb-2 mt-12 first:mt-0">
+                        <i class="fa-solid ${catMeta.icon} mr-2"></i> ${catMeta.title}
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                `;
+
+                items.forEach(item => {
+                    html += `
+                        <article onclick="openArticle('${item.id}')" class="glass-card rounded-2xl overflow-hidden hover:border-brand-accent/30 transition group cursor-pointer h-full flex flex-col hover:transform hover:scale-[1.02] duration-300">
+                            <div class="h-32 ${item.image} relative shrink-0">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <i class="fa-solid ${item.icon} text-4xl ${item.iconColor} opacity-50 group-hover:opacity-100 transition transform group-hover:scale-110 duration-300"></i>
+                                </div>
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <div class="flex items-center mb-3">
+                                    <span class="text-[10px] font-bold ${item.tagColor} px-2 py-0.5 rounded uppercase tracking-wider">
+                                        ${item.tag}
+                                    </span>
+                                </div>
+                                <h3 class="text-lg font-bold mb-2 leading-tight group-hover:text-brand-accent transition">${item.title}</h3>
+                                <p class="text-xs text-gray-400 mb-4 line-clamp-3 flex-grow">${item.description}</p>
+                                <div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+                                    <span class="text-xs text-gray-500"><i class="fa-regular fa-clock mr-1"></i> ${item.readTime}</span>
+                                    <span class="text-xs text-brand-accent uppercase tracking-wider font-bold">Читать -></span>
+                                </div>
+                            </div>
+                        </article>
+                    `;
+                });
+
+                html += `</div>`; // Close grid
+            }
+
+            container.innerHTML = html;
+        }
+
+        // Modal Logic
+        function openArticle(id) {
+            const article = KNOWLEDGE_DB.find(a => a.id === id);
+            if (!article) return;
+
+            // Populate Data
+            document.getElementById('modalTitle').textContent = article.title;
+            document.getElementById('modalTag').textContent = article.tag;
+            document.getElementById('modalTag').className = `text-xs font-bold px-2 py-1 rounded uppercase tracking-wider mb-3 inline-block ${article.tagColor}`;
+            document.getElementById('modalTime').textContent = article.readTime;
+            document.getElementById('modalImage').className = `absolute inset-0 ${article.image}`;
+
+            // Render Content (HTML)
+            document.getElementById('modalContent').innerHTML = article.content || '<p>Контент загружается...</p>';
+
+            // Show Modal
+            modal.classList.remove('hidden');
+            // Slight delay for animation
+            setTimeout(() => {
+                panel.classList.remove('translate-x-full');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Lock scroll
+        }
+
+        function closeArticle() {
+            panel.classList.add('translate-x-full');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = ''; // Unlock scroll
+        }
+
+        renderKnowledge();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity | Курс для Новичков</title>
+    <!-- Auth Check -->
+    <script>
+        if (!localStorage.getItem('ag_auth')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <script src="../assets/js/tailwindcss.js"></script>
+    <link href="../assets/css/fontawesome.css" rel="stylesheet">
+    <link href="../assets/css/google-fonts.css" rel="stylesheet">
+    <link href="cabinet.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0C10',
+                            accent: '#66FCF1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: white;
+        }
+
+        /* Custom Accordion Details Summary */
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="border-b border-white/10 bg-[#0B0C10]/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-gray-400 hover:text-white transition">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span class="text-sm font-bold">Назад в Кабинет</span>
+            </a>
+            <div class="flex items-center space-x-3">
+                <span class="font-display font-bold tracking-wider">ANTIGRAVITY <span
+                        class="text-brand-accent">ACADEMY</span></span>
+            </div>
+            <div class="w-20"></div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-12 max-w-4xl">
+
+        <!-- Header -->
+        <!-- Header -->
+        <div class="mb-12">
+            <h1 class="text-3xl font-display font-bold mb-2">Курс: Метод Антигравити</h1>
+            <p class="text-gray-400">От регистрации в Google Gemini до первой автоматизации.</p>
+        </div>
+
+        <!-- Curriculum -->
+        <div class="space-y-6">
+
+            <!-- Module 0: Toolkit (New) -->
+            <div class="glass-card rounded-2xl border border-white/10 overflow-hidden bg-brand-accent/5">
+                <div class="p-6 border-b border-white/5 bg-white/5 flex justify-between items-center">
+                    <div>
+                        <span class="text-xs font-bold text-brand-accent uppercase tracking-widest">Модуль 0</span>
+                        <h2 class="text-xl font-bold mt-1">Инструментарий (Google Antigravity)</h2>
+                    </div>
+                    <i class="fa-solid fa-rocket text-2xl text-brand-accent"></i>
+                </div>
+
+                <div class="divide-y divide-white/5">
+                    <!-- Lesson 0.1 -->
+                    <details class="group">
+                        <summary
+                            class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition">
+                            <div class="flex items-center space-x-4">
+                                <i class="fa-solid fa-server text-gray-400 group-open:text-brand-accent transition"></i>
+                                <span class="font-medium text-gray-300 group-open:text-white">Antigravity: Центр
+                                    Управления Полетами</span>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 transform group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed max-w-3xl ml-10">
+                            <p class="mb-4">Забудьте про обычные чаты. Будущее — это <strong>Agentic IDE</strong>.
+                                Google Antigravity — это среда, где вы не просто "общаетесь" с AI, а управляете
+                                автономными агентами.</p>
+                            <ul class="list-disc list-inside space-y-2 mb-4 text-gray-300">
+                                <li><strong>Агенты (Agents):</strong> Виртуальные сотрудники, которые могут планировать,
+                                    писать код и проверять результат.</li>
+                                <li><strong>Mission Control:</strong> Единая панель, где вы видите, как агенты выполняют
+                                    задачи в реальном времени.</li>
+                                <li><strong>Artifacts:</strong> Агенты создают готовые файлы (документы, код, отчеты), а
+                                    не просто текст в чате.</li>
+                            </ul>
+                            <a href="https://antigravity.google/" target="_blank"
+                                class="inline-block bg-white/10 text-brand-accent px-4 py-2 rounded text-xs font-bold hover:bg-white/20 transition">
+                                <i class="fa-solid fa-external-link-alt mr-2"></i> Открыть Antigravity
+                            </a>
+                            <div class="mt-6 bg-brand-accent/10 border border-brand-accent/20 rounded-lg p-4">
+                                <h4 class="text-brand-accent font-bold text-xs uppercase tracking-widest mb-2"><i
+                                        class="fa-solid fa-bolt mr-2"></i> Практика</h4>
+                                <p class="text-sm text-gray-300">Перейдите на сайт <code>antigravity.google</code>.
+                                    Изучите раздел "Capabilities". Поймите разницу между "Chat model" (болтушка) и
+                                    "Agent" (деятель).</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Lesson 0.2 -->
+                    <details class="group">
+                        <summary
+                            class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition">
+                            <div class="flex items-center space-x-4">
+                                <i
+                                    class="fa-solid fa-users-gear text-gray-400 group-open:text-brand-accent transition"></i>
+                                <span class="font-medium text-gray-300 group-open:text-white">От Промпта к
+                                    Делегированию</span>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 transform group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed max-w-3xl ml-10">
+                            <p class="mb-4">В Antigravity мы меняем подход:</p>
+                            <ol class="list-decimal list-inside space-y-2 mb-4">
+                                <li><strong>Старый путь:</strong> "Напиши код сайта" ( и вы сами его копируете/чините).
+                                </li>
+                                <li><strong>Путь Antigravity:</strong> "Создай сайт, проверь его в браузере и исправь
+                                    ошибки". Агент делает всё сам.</li>
+                            </ol>
+                            <p class="text-xs text-brand-accent">Ваша роль меняется с "Писателя" на "Менеджера".</p>
+                            <div class="mt-6 bg-brand-accent/10 border border-brand-accent/20 rounded-lg p-4">
+                                <h4 class="text-brand-accent font-bold text-xs uppercase tracking-widest mb-2"><i
+                                        class="fa-solid fa-bolt mr-2"></i> Практика</h4>
+                                <p class="text-sm text-gray-300">Сформулируйте задачу для агента: не "как сделать", а
+                                    "какой результат нужен". Например: "Мне нужен отчет о продажах в PDF". Запишите это.
+                                </p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Module 1 -->
+            <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+                <div class="p-6 border-b border-white/5 bg-white/5 flex justify-between items-center">
+                    <div>
+                        <span class="text-xs font-bold text-brand-accent uppercase tracking-widest">Модуль 1</span>
+                        <h2 class="text-xl font-bold mt-1">Основы Мышления Антигравити</h2>
+                    </div>
+                    <i class="fa-solid fa-brain text-2xl text-gray-500"></i>
+                </div>
+
+                <div class="divide-y divide-white/5">
+                    <!-- Lesson 1.1 -->
+                    <details class="group">
+                        <summary
+                            class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition">
+                            <div class="flex items-center space-x-4">
+                                <i
+                                    class="fa-regular fa-circle-play text-gray-400 group-open:text-brand-accent transition"></i>
+                                <span class="font-medium text-gray-300 group-open:text-white">Анатомия идеального
+                                    промпта</span>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 transform group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed max-w-3xl ml-10">
+                            <p class="mb-4">Нейросеть — это не поисковик. Это стажер-отличник, которому нужна четкая
+                                инструкция. <strong>Формула Антигравити:</strong></p>
+                            <ul class="list-disc list-inside space-y-2 mb-6 text-gray-300">
+                                <li><strong>Роль (Role):</strong> "Ты опытный юрист" или "Ты циничный стендап-комик".
+                                    Это задает тон.</li>
+                                <li><strong>Контекст (Context):</strong> "Я пишу пост для LinkedIn про выгорание".</li>
+                                <li><strong>Задача (Task):</strong> "Напиши 3 варианта вступления".</li>
+                                <li><strong>Ограничения (Constraints):</strong> "Без клише, не используй слово 'успех',
+                                    максимум 50 слов".</li>
+                            </ul>
+                            <div
+                                class="bg-black/50 p-4 rounded-lg font-mono text-xs text-brand-accent border-l-2 border-brand-accent">
+                                ПЛОХО: "Придумай идею для видео."<br>
+                                ХОРОШО: "Действуй как сценарист TikTok. Придумай 3 вирусные идеи для видео про [ТЕМА]
+                                для аудитории 18-25 лет. Формат: скетч."
+                            </div>
+                            <div class="mt-6 bg-brand-accent/10 border border-brand-accent/20 rounded-lg p-4">
+                                <h4 class="text-brand-accent font-bold text-xs uppercase tracking-widest mb-2"><i
+                                        class="fa-solid fa-bolt mr-2"></i> Практика</h4>
+                                <p class="text-sm text-gray-300">Возьмите плохой запрос: "Помоги с маркетингом".
+                                    Перепишите его по Формуле Антигравити (Роль + Контекст + Задача).</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Lesson 1.2 -->
+                    <details class="group">
+                        <summary
+                            class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition">
+                            <div class="flex items-center space-x-4">
+                                <i
+                                    class="fa-regular fa-file-lines text-gray-400 group-open:text-brand-accent transition"></i>
+                                <span class="font-medium text-gray-300 group-open:text-white">Чек-лист: Настройка
+                                    рабочего места</span>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 transform group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed max-w-3xl ml-10">
+                            <p class="mb-4">Джентльменский набор нейро-энтузиаста:</p>
+                            <ol class="list-decimal list-inside space-y-2 mb-4">
+                                <li><strong class="text-white">Google Gemini Advanced:</strong> Бесплатные версии
+                                    (Gemini Flash) годятся только для черновиков. Для работы нужна модель <strong>Gemini
+                                        1.5 Pro</strong>.</li>
+                                <li><strong class="text-white">База Знаний:</strong> Obsidian или Notion. Сразу
+                                    сохраняйте удачные промпты.</li>
+                                <li><strong class="text-white">DeepL:</strong> Лучший переводчик. Иногда промпты на
+                                    английском работают точнее.</li>
+                            </ol>
+                            <div class="mt-6 bg-brand-accent/10 border border-brand-accent/20 rounded-lg p-4">
+                                <h4 class="text-brand-accent font-bold text-xs uppercase tracking-widest mb-2"><i
+                                        class="fa-solid fa-bolt mr-2"></i> Практика</h4>
+                                <p class="text-sm text-gray-300">Если у вас нет базы знаний, зарегистрируйтесь прямо
+                                    сейчас в <strong>Notion</strong> или <strong>Obsidian</strong>. Создайте там
+                                    страницу "Мои Промпты".</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Module 2: Text AI -->
+            <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+                <div class="p-6 border-b border-white/5 bg-white/5 flex justify-between items-center">
+                    <div>
+                        <span class="text-xs font-bold text-brand-accent uppercase tracking-widest">Модуль 2</span>
+                        <h2 class="text-xl font-bold mt-1">Текстовые Нейросети (Google Gemini)</h2>
+                    </div>
+                    <i class="fa-solid fa-pen-nib text-2xl text-gray-500"></i>
+                </div>
+
+                <div class="divide-y divide-white/5">
+                    <!-- Lesson 2.1 -->
+                    <details class="group">
+                        <summary
+                            class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition">
+                            <div class="flex items-center space-x-4">
+                                <i
+                                    class="fa-solid fa-paragraph text-gray-400 group-open:text-brand-accent transition"></i>
+                                <span class="font-medium text-gray-300 group-open:text-white">Копирайтинг: Формулы
+                                    продаж</span>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 transform group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed max-w-3xl ml-10">
+                            <p class="mb-4">Не просите "написать продающий текст". Просите использовать конкретную
+                                формулу.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-black/30 p-3 rounded border border-white/5">
+                                    <strong class="text-white block mb-1">AIDA</strong>
+                                    Attention (Внимание) -> Interest (Интерес) -> Desire (Желание) -> Action (Действие).
+                                </div>
+                                <div class="bg-black/30 p-3 rounded border border-white/5">
+                                    <strong class="text-white block mb-1">PAS</strong>
+                                    Problem (Проблема) -> Agitation (Боль) -> Solution (Решение).
+                                </div>
+                            </div>
+                            <p class="text-xs text-brand-accent">Лайфхак: Добавьте "Используй короткие предложения в
+                                стиле Хемингуэя", чтобы текст не был "водянистым".</p>
+                            <div class="mt-6 bg-brand-accent/10 border border-brand-accent/20 rounded-lg p-4">
+                                <h4 class="text-brand-accent font-bold text-xs uppercase tracking-widest mb-2"><i
+                                        class="fa-solid fa-bolt mr-2"></i> Практика</h4>
+                                <p class="text-sm text-gray-300">Откройте последнее отправленное вами письмо или пост.
+                                    Попросите Gemini переписать его, используя формулу <strong>PAS</strong>.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Lesson 2.2 -->
+                    <details class="group">
+                        <summary
+                            class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition">
+                            <div class="flex items-center space-x-4">
+                                <i class="fa-solid fa-code text-gray-400 group-open:text-brand-accent transition"></i>
+                                <span class="font-medium text-gray-300 group-open:text-white">Кодинг для
+                                    "Гуманитариев"</span>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 transform group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed max-w-3xl ml-10">
+                            <p class="mb-4">Вы можете создать калькулятор, лендинг или игру, не зная ни строчки кода.
+                                Главное — итерации.</p>
+                            <ol class="list-decimal list-inside space-y-2 mb-4">
+                                <li>Попросите написать код (HTML/CSS/JS) в одном файле.</li>
+                                <li>Скопируйте, откройте в браузере.</li>
+                                <li>Если есть ошибка: Скопируйте ошибку и скажите "Fix this".</li>
+                            </ol>
+                            <div class="bg-black/50 p-4 rounded-lg font-mono text-xs text-green-400">
+                                Prompt: "Create a modern landing page for a coffee shop using TailwindCSS. Dark mode,
+                                huge typography. Single HTML file."
+                            </div>
+                            <div class="mt-6 bg-brand-accent/10 border border-brand-accent/20 rounded-lg p-4">
+                                <h4 class="text-brand-accent font-bold text-xs uppercase tracking-widest mb-2"><i
+                                        class="fa-solid fa-bolt mr-2"></i> Практика</h4>
+                                <p class="text-sm text-gray-300">Попросите Gemini: "Напиши HTML код для красной кнопки с
+                                    тенью при наведении". Скопируйте результат в блокнот, сохраните как
+                                    <code>button.html</code> и откройте.
+                                </p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Lesson 2.3: Analyst (New) -->
+                    <details class="group">
+                        <summary
+                            class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition">
+                            <div class="flex items-center space-x-4">
+                                <i
+                                    class="fa-solid fa-magnifying-glass-chart text-gray-400 group-open:text-brand-accent transition"></i>
+                                <span class="font-medium text-gray-300 group-open:text-white">AI как Аналитик (PDF,
+                                    Таблицы)</span>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 transform group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed max-w-3xl ml-10">
+                            <p class="mb-4">Самый недооцененный навык — заставить AI сделать <strong
+                                    class="text-white">Summary</strong> (выжимку) или структурировать хаос.</p>
+                            <ul class="list-disc list-inside space-y-1 mb-4">
+                                <li>Загрузите PDF договора: "Найди риски для арендатора".</li>
+                                <li>Скопируйте переписку чата: "Выпиши 5 главных договоренностей".</li>
+                                <li>Грязные данные: "Извлеки все emails из этого текста в таблицу".</li>
+                            </ul>
+                            <div class="mt-6 bg-brand-accent/10 border border-brand-accent/20 rounded-lg p-4">
+                                <h4 class="text-brand-accent font-bold text-xs uppercase tracking-widest mb-2"><i
+                                        class="fa-solid fa-bolt mr-2"></i> Практика</h4>
+                                <p class="text-sm text-gray-300">Найдите любую длинную статью в интернете. Скопируйте
+                                    текст. Попросите Gemini: "Сделай Summary: 3 главных вывода из текста".</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Module 3: Visual AI -->
+            <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+                <div class="p-6 border-b border-white/5 bg-white/5 flex justify-between items-center">
+                    <div>
+                        <span class="text-xs font-bold text-brand-accent uppercase tracking-widest">Модуль 3</span>
+                        <h2 class="text-xl font-bold mt-1">Визуальная Генерация (Nano Banana)</h2>
+                    </div>
+                    <i class="fa-solid fa-image text-2xl text-gray-500"></i>
+                </div>
+
+                <div class="divide-y divide-white/5">
+                    <!-- Lesson 3.1 -->
+                    <details class="group">
+                        <summary
+                            class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition">
+                            <div class="flex items-center space-x-4">
+                                <i class="fa-solid fa-camera text-gray-400 group-open:text-brand-accent transition"></i>
+                                <span class="font-medium text-gray-300 group-open:text-white">Структура
+                                    фотореализма</span>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 transform group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed max-w-3xl ml-10">
+                            <p class="mb-4">Чтобы картинка выглядела как фото, нужно описать её как фотограф.</p>
+                            <ul class="space-y-2 mb-4">
+                                <li>📷 <strong>Камера:</strong> Shot on Sony A7R IV, 85mm lens.</li>
+                                <li>💡 <strong>Свет:</strong> Cinematic lighting, golden hour, rim light.</li>
+                                <li>🎞️ <strong>Пленка:</strong> Kodak Portra 400, film grain.</li>
+                            </ul>
+                            <div class="bg-black/50 p-4 rounded-lg font-mono text-xs text-pink-400">
+                                /imagine prompt: Close-up portrait of a cyberpunk woman, neon rain, shot on 35mm lens,
+                                f/1.8, bokeh, cinematic lighting --ar 16:9 --v 6.0
+                            </div>
+                            <div class="mt-6 bg-brand-accent/10 border border-brand-accent/20 rounded-lg p-4">
+                                <h4 class="text-brand-accent font-bold text-xs uppercase tracking-widest mb-2"><i
+                                        class="fa-solid fa-bolt mr-2"></i> Практика</h4>
+                                <p class="text-sm text-gray-300">Сгенерируйте портрет, добавив в промпт параметры
+                                    камеры: "Shot on Sony A7R" и свет: "Cinematic Lighting". Сравните с обычным.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Lesson 3.2 -->
+                    <details class="group">
+                        <summary
+                            class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition">
+                            <div class="flex items-center space-x-4">
+                                <i
+                                    class="fa-solid fa-sliders text-gray-400 group-open:text-brand-accent transition"></i>
+                                <span class="font-medium text-gray-300 group-open:text-white">Параметры
+                                    (Parameters)</span>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 transform group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed max-w-3xl ml-10">
+                            <p class="mb-2">Самые важные хвосты команды:</p>
+                            <ul class="list-disc list-inside space-y-1 mb-4">
+                                <li><code>--ar 16:9</code> — Соотношение сторон (широкий экран).</li>
+                                <li><code>--s 250</code> — Стилизация (чем выше, тем более "художественно").</li>
+                                <li><code>--niji 6</code> — Режим Аниме.</li>
+                                <li><code>--no text</code> — Убрать текст с картинки.</li>
+                            </ul>
+                            <div class="mt-6 bg-brand-accent/10 border border-brand-accent/20 rounded-lg p-4">
+                                <h4 class="text-brand-accent font-bold text-xs uppercase tracking-widest mb-2"><i
+                                        class="fa-solid fa-bolt mr-2"></i> Практика</h4>
+                                <p class="text-sm text-gray-300">Сгенерируйте любую сцену с параметром
+                                    <code>--ar 16:9</code> (для YouTube) и <code>--no text</code> (без надписей).
+                                </p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Lesson 3.3: Consistency (New) -->
+                    <details class="group">
+                        <summary
+                            class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition">
+                            <div class="flex items-center space-x-4">
+                                <i
+                                    class="fa-solid fa-face-grin-wide text-gray-400 group-open:text-brand-accent transition"></i>
+                                <span class="font-medium text-gray-300 group-open:text-white">Постоянство Персонажа
+                                    (--cref)</span>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 transform group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed max-w-3xl ml-10">
+                            <p class="mb-4">Главная боль — как сделать одного персонажа в разных позах? Используйте
+                                референсы.</p>
+                            <ul class="space-y-2 mb-4">
+                                <li><code>--cref [URL]</code> — <strong>Character Reference</strong>. Копирует лицо.
+                                </li>
+                                <li><code>--sref [URL]</code> — <strong>Style Reference</strong>. Копирует цветовую
+                                    гамму и стиль рисовки.</li>
+                            </ul>
+                            <div class="bg-black/50 p-4 rounded-lg font-mono text-xs text-pink-400">
+                                /imagine prompt: Man running in a park --cref https://image.url --cw 100 --v 6.0
+                            </div>
+                            <div class="mt-6 bg-brand-accent/10 border border-brand-accent/20 rounded-lg p-4">
+                                <h4 class="text-brand-accent font-bold text-xs uppercase tracking-widest mb-2"><i
+                                        class="fa-solid fa-bolt mr-2"></i> Практика</h4>
+                                <p class="text-sm text-gray-300">Сгенерируйте персонажа. Получите URL картинки. Создайте
+                                    новую генерацию (тот же персонаж в другой позе), используя <code>--cref URL</code>.
+                                </p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Module 4: Automation (New) -->
+            <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+                <div class="p-6 border-b border-white/5 bg-white/5 flex justify-between items-center">
+                    <div>
+                        <span class="text-xs font-bold text-brand-accent uppercase tracking-widest">Модуль 4</span>
+                        <h2 class="text-xl font-bold mt-1">Автоматизация и Деньги</h2>
+                    </div>
+                    <i class="fa-solid fa-robot text-2xl text-gray-500"></i>
+                </div>
+
+                <div class="divide-y divide-white/5">
+                    <!-- Lesson 4.1 -->
+                    <details class="group">
+                        <summary
+                            class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition">
+                            <div class="flex items-center space-x-4">
+                                <i
+                                    class="fa-solid fa-network-wired text-gray-400 group-open:text-brand-accent transition"></i>
+                                <span class="font-medium text-gray-300 group-open:text-white">Что такое API и
+                                    Webhooks?</span>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 transform group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed max-w-3xl ml-10">
+                            <p class="mb-4">Представьте ресторан. Вы (Клиент) не идете на кухню (Сервер). Вы говорите
+                                Официанту (API), что хотите. Вебхук — это когда официант сам подходит крикнуть
+                                "Готово!", когда блюдо сварилось.</p>
+                            <p>В мире AI это значит, что Telegram может "постучаться" в <strong>Google Gemini
+                                    API</strong> и передать сообщение
+                                пользователя, а потом вернуть ответ.</p>
+                            <div class="mt-6 bg-brand-accent/10 border border-brand-accent/20 rounded-lg p-4">
+                                <h4 class="text-brand-accent font-bold text-xs uppercase tracking-widest mb-2"><i
+                                        class="fa-solid fa-bolt mr-2"></i> Практика</h4>
+                                <p class="text-sm text-gray-300">Объясните (вслух или текстом) своему другу/коллеге, что
+                                    такое API, используя аналогию с рестораном и официантом. Проверка на понимание.</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Lesson 4.2 -->
+                    <details class="group">
+                        <summary
+                            class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition">
+                            <div class="flex items-center space-x-4">
+                                <i
+                                    class="fa-brands fa-telegram text-gray-400 group-open:text-brand-accent transition"></i>
+                                <span class="font-medium text-gray-300 group-open:text-white">Кейс: Telegram Бот +
+                                    Gemini 1.5 Pro</span>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 transform group-open:rotate-180 transition"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed max-w-3xl ml-10">
+                            <p class="mb-4">Самый востребованный кейс 2026 года — <strong>AI-Отдел Продаж</strong>:</p>
+                            <div class="bg-black/30 p-4 rounded border border-white/5 mb-4 font-mono text-xs">
+                                Новый лид -> <strong>Агент изучает сайт клиента (Web Search)</strong> -> Квалифицирует
+                                (горячий/холодный) -> Пишет персонализированное КП -> Заносит в CRM.
+                            </div>
+                            <p class="text-xs text-brand-accent"><i class="fa-solid fa-star mr-1"></i> Полный туториал
+                                по Make.com доступен в Базе Знаний для Pro-участников.</p>
+                            <div class="mt-6 bg-brand-accent/10 border border-brand-accent/20 rounded-lg p-4">
+                                <h4 class="text-brand-accent font-bold text-xs uppercase tracking-widest mb-2"><i
+                                        class="fa-solid fa-bolt mr-2"></i> Практика</h4>
+                                <p class="text-sm text-gray-300">Перейдите на <strong>Make.com</strong> и создайте
+                                    бесплатный аккаунт. Просто посмотрите на интерфейс сценариев.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Final Project -->
+        <div
+            class="mt-12 p-8 glass-card rounded-2xl border border-brand-accent/30 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-brand-accent/5 z-0"></div>
+            <div class="relative z-10">
+                <i class="fa-solid fa-flag-checkered text-4xl text-brand-accent mb-4"></i>
+                <h2 class="text-2xl font-bold font-display mb-2">Финальный Проект</h2>
+                <p class="text-gray-400 mb-6 max-w-lg mx-auto">Соберите свой первый полноценный инструмент. Зайдите в
+                    Google Antigravity и создайте Агента, который решает вашу рабочую задачу "под ключ" (например,
+                    "Агент-Юрист" или "Агент-SMM").</p>
+                <a href="https://antigravity.google/" target="_blank"
+                    class="bg-brand-accent text-black px-8 py-3 rounded-full font-bold hover:bg-white transition transform hover:scale-105 inline-block">
+                    <i class="fa-solid fa-rocket mr-2"></i> Запустить Агента
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

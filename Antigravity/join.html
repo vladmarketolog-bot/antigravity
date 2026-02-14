@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Lab | Вступление в Клуб</title>
+    <script src="../assets/js/tailwindcss.js"></script>
+    <link href="../assets/css/fontawesome.css" rel="stylesheet">
+    <link href="../assets/css/google-fonts.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0C10',
+                            gray: '#1F2833',
+                            accent: '#66FCF1',
+                            muted: '#45A29E',
+                            purple: '#A64AC9',
+                            gold: '#FFD700'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gold-border {
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .step-line {
+            position: absolute;
+            left: 24px;
+            top: 40px;
+            bottom: -20px;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 0;
+        }
+
+        .step-item:last-child .step-line {
+            display: none;
+        }
+    </style>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+            (function (m, e, t, r, i, k, a) {
+                m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+                m[i].l = 1 * new Date();
+                for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+            })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=106463224', 'ym');
+
+        ym(106463224, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/106463224" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+
+<body class="antialiased font-sans flex flex-col min-h-screen">
+
+    <!-- Navbar (Simplified) -->
+    <nav class="fixed w-full z-50 glass-card border-b border-white/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fa-solid fa-cube text-brand-accent text-2xl"></i>
+                <span class="font-display font-bold text-xl tracking-wider">ANTIGRAVITY <span
+                        class="text-brand-muted">LAB</span></span>
+            </a>
+            <!-- No buttons here, focus on content -->
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-32 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+
+            <!-- Headline -->
+            <div class="text-center mb-16">
+                <span class="text-brand-accent font-bold tracking-widest uppercase text-sm mb-4 block">Последний
+                    шаг</span>
+                <h1 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                    Вы вступаете в <span class="text-brand-accent">Закрытый Клуб</span>
+                </h1>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    Это не "курс" в записи. Это живая среда, где мы строим продукты в режиме реального времени.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+                <!-- Left Column: The Value Stack -->
+                <div class="lg:col-span-2 space-y-8">
+
+                    <!-- 1. The Core (Streams) -->
+                    <div class="glass-card p-8 rounded-2xl relative overflow-hidden border-l-4 border-brand-accent">
+                        <div
+                            class="absolute top-0 right-0 bg-brand-accent text-black font-bold text-xs px-3 py-1 rounded-bl-xl">
+                            MAIN VALUE</div>
+
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <i class="fa-brands fa-telegram text-blue-400 text-3xl mr-4"></i>
+                            Закрытый Канал + Стримы
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            Самое главное вы получаете здесь. Доступ в приватный Telegram-канал.
+                            Именно там я публикую ссылки на <strong>Live-стримы</strong>.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li><i class="fa-solid fa-check text-brand-accent mr-2"></i> Собираемся в онлайне</li>
+                            <li><i class="fa-solid fa-check text-brand-accent mr-2"></i> Делаем реальные проекты с нуля
+                            </li>
+                            <li><i class="fa-solid fa-check text-brand-accent mr-2"></i> Вы видите весь процесс без
+                                монтажа</li>
+                        </ul>
+                    </div>
+
+                    <!-- 2. The Tools -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fa-solid fa-database text-brand-purple mr-3"></i>
+                            Базы Знаний и Промптов
+                        </h3>
+                        <p class="text-gray-400 text-sm">
+                            Доступ к моим личным коллекциям. Промпты, которые экономят часы работы, и архитектурные
+                            схемы, которые приносят деньги.
+                        </p>
+                    </div>
+
+                    <!-- 3. The Concierge -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/5 gold-border relative">
+                        <div class="absolute -top-3 -right-3 text-brand-gold text-2xl animate-pulse">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 flex items-center text-white">
+                            Консьерж-Сервис
+                        </h3>
+                        <p class="text-gray-300 text-sm mb-3">
+                            <em>"У меня не работает интеграция..."</em> — больше не проблема.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            Мы помогаем с сложными техническими вопросами. Если вы застряли при подключении Stripe или
+                            настройке AI-агента — мы поможем. Это работает как личный CTO на аутсорсе.
+                        </p>
+                    </div>
+
+                    <!-- 4. Marketing Reviews -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fa-solid fa-magnifying-glass-chart text-green-400 mr-3"></i>
+                            Маркетинговые Разборы
+                        </h3>
+                        <p class="text-gray-400 text-sm">
+                            Я лично разбираю проекты участников. Говорю, где вы теряете деньги, как улучшить оффер и
+                            какую воронку внедрить.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: The Offer & Payment -->
+                <div class="lg:col-span-1">
+                    <div class="glass-card p-6 rounded-2xl sticky top-32 border border-white/10">
+
+                        <div class="text-center mb-8">
+                            <p class="text-gray-500 text-sm mb-2">Стоимость участия</p>
+                            <div class="flex flex-col justify-center items-center">
+                                <span
+                                    class="text-lg text-gray-500 line-through decoration-red-500 decoration-2">10,000₽</span>
+                                <div class="flex items-baseline justify-center">
+                                    <span class="text-3xl md:text-5xl font-bold text-brand-accent">4,900₽</span>
+                                    <span class="text-gray-500 ml-2 whitespace-nowrap text-sm md:text-base">/
+                                        месяц</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 bg-green-500/10 border border-green-500/30 rounded-lg p-3">
+                                <p class="text-xs text-green-400">
+                                    <i class="fa-solid fa-chart-line mr-1"></i>
+                                    Экономия: <strong>миллионы рублей</strong>, если ваш бизнес зависит от качественного
+                                    сайта или приложения.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- What happens next -->
+                        <div class="mb-8 relative">
+                            <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wide">Что произойдет после
+                                оплаты:</h4>
+
+                            <div class="space-y-6">
+                                <div class="relative pl-8 step-item">
+                                    <div class="step-line"></div>
+                                    <div class="absolute left-0 top-0 w-12 h-12 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-brand-accent rounded-full shadow-[0_0_10px_#66FCF1]">
+                                        </div>
+                                    </div>
+                                    <h5 class="font-bold text-white text-sm">Оплата картой</h5>
+                                    <p class="text-xs text-gray-500 mt-1">Безопасный платеж.</p>
+                                </div>
+
+                                <div class="relative pl-8 step-item">
+                                    <div class="step-line"></div>
+                                    <div class="absolute left-0 top-0 w-12 h-12 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-brand-purple rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-bold text-white text-sm">Письмо с доступом</h5>
+                                    <p class="text-xs text-gray-500 mt-1">После оплаты на почту или в Telegram придет
+                                        ссылка.</p>
+                                </div>
+
+                                <div class="relative pl-8 step-item">
+                                    <div class="absolute left-0 top-0 w-12 h-12 flex items-center justify-center">
+                                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                    </div>
+                                    <h5 class="font-bold text-white text-sm">Доступ в Клуб</h5>
+                                    <p class="text-xs text-gray-500 mt-1">Переходите по ссылке в закрытый канал. Вы в
+                                        игре.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <button id="pay-button" onclick="initiatePayment()"
+                            class="block w-full bg-brand-accent hover:bg-white text-brand-dark font-bold text-center py-4 rounded-xl transition duration-300 shadow-[0_0_20px_rgba(102,252,241,0.3)] hover:shadow-[0_0_30px_rgba(102,252,241,0.5)] transform hover:scale-[1.02]">
+                            Оплатить 4,900₽
+                        </button>
+
+                        <p class="text-center text-xs text-gray-500 mt-4">
+                            Нажимаете кнопку -> переходите на эквайринг.<br>
+                            Отменить подписку можно в любой момент.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Payment Data Modal -->
+    <div id="payment-modal" class="fixed inset-0 z-[100] hidden">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closePaymentModal()"></div>
+
+        <!-- Modal Content -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md p-6">
+            <div
+                class="glass-card rounded-2xl p-8 border border-brand-accent/30 shadow-[0_0_50px_rgba(102,252,241,0.15)] relative">
+
+                <!-- Close Button -->
+                <button onclick="closePaymentModal()"
+                    class="absolute top-4 right-4 text-gray-500 hover:text-white transition">
+                    <i class="fa-solid fa-times text-xl"></i>
+                </button>
+
+                <h3 class="text-2xl font-display font-bold mb-2 text-center">Оформление доступа</h3>
+                <p class="text-gray-400 text-sm text-center mb-6">Введите данные, чтобы мы знали, кому выдать доступ.
+                </p>
+
+                <form id="payment-form" onsubmit="submitPaymentForm(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-1 uppercase tracking-wider">Ваше Имя</label>
+                        <input type="text" id="client-name" required placeholder="Иван Иванов"
+                            class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-accent transition placeholder-gray-600">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-1 uppercase tracking-wider">Email (для
+                            чека)</label>
+                        <input type="email" id="client-email" required placeholder="name@example.com"
+                            class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-accent transition placeholder-gray-600">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-1 uppercase tracking-wider">Telegram (для
+                            связи)</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-3 text-gray-500">@</span>
+                            <input type="text" id="client-telegram" required placeholder="username"
+                                class="w-full bg-white/5 border border-white/10 rounded-lg pl-8 pr-4 py-3 text-white focus:outline-none focus:border-brand-accent transition placeholder-gray-600">
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" id="modal-pay-button"
+                            class="block w-full bg-brand-accent hover:bg-white text-brand-dark font-bold text-center py-4 rounded-xl transition duration-300 transform hover:scale-[1.02]">
+                            Перейти к оплате
+                        </button>
+                        <p class="text-center text-[10px] text-gray-600 mt-3">
+                            Нажимая кнопку, вы соглашаетесь с условиями оферты.
+                        </p>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/payment.js"></script>
+
+    <!-- Footer -->
+    <footer class="bg-[#050505] py-8 border-t border-white/5 text-center">
+        <div class="container mx-auto px-6">
+            <p class="text-gray-500 text-xs mb-4">
+                ИП Потапов Владислав Валерьевич | ИНН 165057617983
+            </p>
+            <div class="flex justify-center space-x-6 text-xs text-gray-600">
+                <a href="offer.html" class="hover:text-gray-400">Оферта</a>
+                <a href="../privacy.html" class="hover:text-gray-400">Политика</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Lab | Для Маркетологов</title>
+    <script src="../assets/js/tailwindcss.js"></script>
+    <link href="../assets/css/fontawesome.css" rel="stylesheet">
+    <link href="../assets/css/google-fonts.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0C10',
+                            gray: '#1F2833',
+                            accent: '#66FCF1',
+                            muted: '#45A29E',
+                            purple: '#A64AC9'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #66FCF1, #A64AC9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+            (function (m, e, t, r, i, k, a) {
+                m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+                m[i].l = 1 * new Date();
+                for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+            })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=106463224', 'ym');
+
+        ym(106463224, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/106463224" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+
+<body class="antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-card border-b border-white/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fa-solid fa-cube text-brand-accent text-2xl"></i>
+                <span class="font-display font-bold text-xl tracking-wider">ANTIGRAVITY <span
+                        class="text-brand-muted">LAB</span></span>
+            </a>
+            <a href="join.html"
+                class="bg-brand-accent text-brand-dark px-6 py-2 rounded-full font-bold hover:bg-white transition">
+                В Клуб
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero: Independence -->
+    <section class="pt-32 pb-20 relative overflow-hidden">
+        <!-- Background Blobs -->
+        <div class="absolute top-20 left-0 w-[600px] h-[600px] bg-brand-purple/10 rounded-full blur-[120px]"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-5xl mx-auto text-center">
+                <div class="inline-block mb-6 px-4 py-1 rounded-full border border-brand-purple/30 bg-brand-purple/5">
+                    <span class="text-brand-purple text-xs font-bold tracking-widest uppercase"><i
+                            class="fa-solid fa-bolt mr-2"></i>Скорость — это деньги</span>
+                </div>
+
+                <h1 class="font-display text-4xl md:text-6xl font-bold leading-tight mb-8">
+                    МАРКЕТОЛОГ, КОТОРЫЙ<br>
+                    <span class="gradient-text">НЕ ЖДЕТ РАЗРАБОТЧИКОВ,</span><br>
+                    ЗАРАБАТЫВАЕТ В 3 РАЗА БОЛЬШЕ.
+                </h1>
+
+                <p class="text-xl text-gray-400 mb-12 leading-relaxed max-w-3xl mx-auto">
+                    Сколько гениальных гипотез умерло, потому что вы ждали верстку 2 недели? <br>
+                    В 2026 году побеждает <span class="text-white font-bold">Full-Stack Маркетолог</span>, который сам
+                    собирает сложные воронки за один вечер.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison: Pain vs Freedom -->
+    <section class="py-20 bg-[#08090C]">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+
+                <!-- Old Way -->
+                <div
+                    class="glass-card p-8 rounded-3xl border-l-4 border-gray-700 opacity-60 hover:opacity-100 transition duration-500">
+                    <h3 class="text-2xl font-bold text-gray-500 mb-6 flex items-center">
+                        <i class="fa-solid fa-hourglass-half mr-3"></i> Классический Путь
+                    </h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-center border-b border-white/5 pb-4">
+                            <span class="text-gray-400">Гипотезы</span>
+                            <span class="font-bold text-xl text-white">1 тест в месяц</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-white/5 pb-4">
+                            <span class="text-gray-400">Процесс</span>
+                            <span class="font-bold text-right text-gray-400 text-sm">ТЗ -> Дизайн -> Верстка<br>->
+                                Правки -> Баги</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-white/5 pb-4">
+                            <span class="text-gray-400">Карьера</span>
+                            <span class="font-bold text-white">Один из тысяч</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="text-gray-400">Доход</span>
+                            <span class="font-bold text-white">Фикс + KPI</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Antigravity Way -->
+                <div
+                    class="glass-card p-8 rounded-3xl border-l-4 border-brand-purple relative transform scale-105 shadow-[0_0_50px_rgba(166,74,201,0.2)]">
+                    <div
+                        class="absolute -top-4 right-8 bg-brand-purple text-white font-bold px-4 py-1 rounded-full text-xs">
+                        UNICORN SKILL</div>
+                    <h3 class="text-2xl font-bold text-brand-purple mb-6 flex items-center">
+                        <i class="fa-solid fa-rocket mr-3"></i> Вы + AI
+                    </h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-center border-b border-white/5 pb-4">
+                            <span class="text-gray-400">Гипотезы</span>
+                            <span class="font-bold text-xl text-brand-purple">10 тестов в неделю</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-white/5 pb-4">
+                            <span class="text-gray-400">Процесс</span>
+                            <span class="font-bold text-right text-white text-sm">Идея -> AI -> Трафик<br>(в тот же
+                                день)</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-white/5 pb-4">
+                            <span class="text-gray-400">Карьера</span>
+                            <span class="font-bold text-white">Незаменимый "Единорог"</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="text-gray-400">Доход</span>
+                            <span class="font-bold text-white">Доля в проектах / % от прибыли</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- The Speed Section -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <i class="fa-solid fa-link-slash text-5xl text-brand-accent mb-8"></i>
+                <h2 class="font-display text-3xl md:text-5xl font-bold mb-8">Полная Независимость</h2>
+                <div class="space-y-6 text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+                    <p>
+                        Хватит умолять разработчиков поменять цвет кнопки. С Antigravity Lab вы получаете полный
+                        контроль над продуктом.
+                    </p>
+                    <ul class="text-left space-y-4 mt-8 bg-white/5 p-8 rounded-2xl">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-purple mr-4"></i> Верстайте
+                            лендинги любой сложности за 20 минут</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-purple mr-4"></i>
+                            Интегрируйте CRM и аналитику без "технарей"</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-purple mr-4"></i> Делайте
+                            свои AI-тулы для лид-магнитов</li>
+                    </ul>
+                </div>
+
+                <div class="mt-12">
+                    <a href="join.html"
+                        class="inline-block bg-brand-purple text-white px-10 py-5 rounded-xl font-bold text-xl hover:scale-105 transition shadow-[0_0_30px_rgba(166,74,201,0.4)]">
+                        Стать Full-Stack Маркетологом
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#050505] pt-20 pb-10 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4 md:mb-0 relative">
+                        <i class="fa-solid fa-cube text-brand-accent text-2xl"></i>
+                        <span class="font-display font-bold text-xl tracking-wider text-white">ANTIGRAVITY <span
+                                class="text-brand-muted">LAB</span></span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6 max-w-sm">
+                        Строим будущее без кода. Я объединяю AI-технологии и предпринимательское мышление, чтобы
+                        создавать продукты за часы, а не месяцы.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://t.me/vladmarketolog" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-accent hover:text-brand-dark transition duration-300">
+                            <i class="fa-brands fa-telegram"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Column 2: Product -->
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-wider">Кому полезно</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="predprinimatel.html" class="hover:text-brand-accent transition">Для
+                                Предпринимателей</a></li>
+                        <li><a href="marketolog.html" class="hover:text-brand-accent transition">Для Маркетологов</a>
+                        </li>
+                        <li><a href="human.html" class="hover:text-brand-accent transition">Хочу создавать сайты</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- Column 3: Resources -->
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-wider">Ресурсы</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="prompts.html" class="hover:text-brand-accent transition">Библиотека промптов</a>
+                        </li>
+                        <li><a href="base.html" class="hover:text-brand-accent transition">База знаний</a></li>
+                        <li><a href="ai.html" class="hover:text-brand-accent transition">AI-инструменты 2026</a></li>
+                        <li><a href="cabinet/login.html"
+                                class="text-brand-accent hover:text-white transition font-bold"><i
+                                    class="fa-solid fa-lock mr-2"></i>Личный Кабинет</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Legal -->
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-wider">Документы</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="offer.html" class="hover:text-brand-accent transition">Публичная оферта</a></li>
+                        <li><a href="../privacy.html" class="hover:text-brand-accent transition">Политика
+                                конфиденциальности</a></li>
+                        <li><a href="../consent.html" class="hover:text-brand-accent transition">Согласие на
+                                рассылку</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div
+                class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
+                <div class="mb-4 md:mb-0">
+                    &copy; 2026 Antigravity Lab. Все права защищены.
+                </div>
+                <div class="flex items-center space-x-1">
+                    <span>Designed by</span>
+                    <i class="fa-solid fa-robot text-brand-accent mx-1"></i>
+                    <span class="text-gray-400">Artificial Intelligence</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

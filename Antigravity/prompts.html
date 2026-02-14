@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Lab | Секретные Промпты</title>
+    <script src="../assets/js/tailwindcss.js"></script>
+    <link href="../assets/css/fontawesome.css" rel="stylesheet">
+    <link href="../assets/css/google-fonts.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0C10',
+                            gray: '#1F2833',
+                            accent: '#66FCF1',
+                            muted: '#45A29E',
+                            orange: '#FF5733'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .orange-text {
+            background: linear-gradient(to right, #FF5733, #C70039);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar for code blocks */
+        .code-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .code-scroll::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        .code-scroll::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+    </style>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+            (function (m, e, t, r, i, k, a) {
+                m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+                m[i].l = 1 * new Date();
+                for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+            })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=106463224', 'ym');
+
+        ym(106463224, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/106463224" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+
+<body class="antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-card border-b border-white/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fa-solid fa-cube text-brand-accent text-2xl"></i>
+                <span class="font-display font-bold text-xl tracking-wider">ANTIGRAVITY <span
+                        class="text-brand-muted">LAB</span></span>
+            </a>
+            <a href="join.html"
+                class="bg-brand-accent text-brand-dark px-6 py-2 rounded-full font-bold hover:bg-white transition">
+                В Клуб
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero: Secret Vault -->
+    <section class="pt-32 pb-16 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('assets/img/carbon-fibre.png')] opacity-10">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div
+                class="inline-block mb-6 px-4 py-1 rounded-full border border-brand-orange/30 bg-brand-orange/5 animate-pulse-slow">
+                <span class="text-brand-orange text-xs font-bold tracking-widest uppercase"><i
+                        class="fa-solid fa-lock-open mr-2"></i>SECURE VAULT ACCESS: GRANTED</span>
+            </div>
+
+            <h1 class="font-display text-4xl md:text-6xl font-bold leading-tight mb-8">
+                МОЯ ЛИЧНАЯ БИБЛИОТЕКА <br>
+                <span class="orange-text">СИСТЕМНЫХ ПРОМПТОВ</span>
+            </h1>
+
+            <p class="text-xl text-gray-400 mb-8 leading-relaxed max-w-2xl mx-auto">
+                Этого нет в открытом доступе. Я готовил эти инструкции 2 года, чтобы заменить целый IT-отдел. <br>
+                <span class="text-white">Забирайте бесплатно.</span> Применяйте в Claude 3.5, GPT-4o или DeepSeek.
+            </p>
+        </div>
+    </section>
+
+    <!-- Library Grid -->
+    <section class="py-12 pb-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+
+                <!-- Prompt 1: Coding -->
+                <div
+                    class="glass-card rounded-2xl border border-white/10 overflow-hidden flex flex-col items-start text-left group hover:border-brand-accent/30 transition">
+                    <div class="p-6 w-full border-b border-white/5 flex justify-between items-center bg-black/20">
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white">Архитектор React-приложений</h3>
+                                <p class="text-xs text-gray-500">Пишет идеальный код для сложных сайтов</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono text-gray-600 bg-white/5 px-2 py-1 rounded">Кодинг</span>
+                    </div>
+
+                    <div class="p-0 w-full bg-[#0d0d0d] font-mono text-xs text-gray-400 overflow-x-auto code-scroll">
+                        <pre class="p-6"><code>You are an expert Senior React Developer and UI/UX Designer.
+Your goal is to write clean, production-ready code.
+
+RULES:
+1. Use TailwindCSS for styling. No custom CSS unless necessary.
+2. Use FontAwesome for icons (CDN is provided).
+3. Do not assume any build steps. Use CDN links for libraries.
+4. Focus on "Apple-style" aesthetics: glassmorphism, clean typography.
+5. Always fully implement the component, do not leave placeholders.
+...</code></pre>
+                    </div>
+
+                    <div class="p-4 w-full border-t border-white/5 bg-white/5 flex justify-between items-center">
+                        <span class="text-xs text-gray-500"><i class="fa-solid fa-eye mr-2"></i>1,240
+                            использований</span>
+                        <button onclick="copyToClipboard(this, 'prompt1')"
+                            class="text-xs bg-brand-gray border border-white/20 hover:bg-brand-accent hover:text-black px-4 py-2 rounded transition flex items-center">
+                            <i class="fa-regular fa-copy mr-2"></i> Копировать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Prompt 2: Offer Gen -->
+                <div
+                    class="glass-card rounded-2xl border border-white/10 overflow-hidden flex flex-col items-start text-left group hover:border-brand-orange/30 transition">
+                    <div class="p-6 w-full border-b border-white/5 flex justify-between items-center bg-black/20">
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-400">
+                                <i class="fa-solid fa-fire"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white">Генератор Офферов на $100M</h3>
+                                <p class="text-xs text-gray-500">Создает предложения, от которых нельзя отказаться</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono text-gray-600 bg-white/5 px-2 py-1 rounded">Маркетинг</span>
+                    </div>
+
+                    <div class="p-0 w-full bg-[#0d0d0d] font-mono text-xs text-gray-400 overflow-x-auto code-scroll">
+                        <pre class="p-6"><code>Act as a world-class Direct Response Marketer inspired by Alex Hormozi.
+Your goal is to create an "Irresistible Grand Slam Offer".
+
+FRAMEWORK:
+1. Identify the Dream Outcome.
+2. List all perceived problems/obstacles.
+3. Create solutions for each as "Bonuses".
+4. Add Scarcity (Quantity) and Urgency (Time).
+5. Name the offer using "Power Words".
+6. Create an insane Guarantee (Risk Reversal).
+...</code></pre>
+                    </div>
+
+                    <div class="p-4 w-full border-t border-white/5 bg-white/5 flex justify-between items-center">
+                        <span class="text-xs text-gray-500"><i class="fa-solid fa-eye mr-2"></i>890 использований</span>
+                        <button onclick="copyToClipboard(this, 'prompt2')"
+                            class="text-xs bg-brand-gray border border-white/20 hover:bg-brand-orange hover:text-black px-4 py-2 rounded transition flex items-center">
+                            <i class="fa-regular fa-copy mr-2"></i> Копировать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Prompt 3: SaaS Validator -->
+                <div
+                    class="glass-card rounded-2xl border border-white/10 overflow-hidden flex flex-col items-start text-left group hover:border-red-500/30 transition">
+                    <div class="p-6 w-full border-b border-white/5 flex justify-between items-center bg-black/20">
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center text-red-400">
+                                <i class="fa-solid fa-gavel"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white">Критик Бизнес-Идей</h3>
+                                <p class="text-xs text-gray-500">Находит слабые места и спасает ваш бюджет</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono text-gray-600 bg-white/5 px-2 py-1 rounded">Стратегия</span>
+                    </div>
+
+                    <div class="p-0 w-full bg-[#0d0d0d] font-mono text-xs text-gray-400 overflow-x-auto code-scroll">
+                        <pre class="p-6"><code>You are a cynical VC investor and experienced product manager.
+I will pitch you a startup idea.
+You must destroy it. Find every hole in logic, market size, and monetization.
+Be harsh but constructive.
+After roasting, suggest 3 "Pivots" that would make the idea actually viable.
+...</code></pre>
+                    </div>
+
+                    <div class="p-4 w-full border-t border-white/5 bg-white/5 flex justify-between items-center">
+                        <span class="text-xs text-gray-500"><i class="fa-solid fa-eye mr-2"></i>2,100
+                            использований</span>
+                        <button onclick="copyToClipboard(this, 'prompt3')"
+                            class="text-xs bg-brand-gray border border-white/20 hover:bg-red-500 hover:text-white px-4 py-2 rounded transition flex items-center">
+                            <i class="fa-regular fa-copy mr-2"></i> Копировать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Prompt 4: Cold DM -->
+                <div
+                    class="glass-card rounded-2xl border border-white/10 overflow-hidden flex flex-col items-start text-left group hover:border-green-500/30 transition">
+                    <div class="p-6 w-full border-b border-white/5 flex justify-between items-center bg-black/20">
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center text-green-400">
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white">Мастер Холодных Рассылок</h3>
+                                <p class="text-xs text-gray-500">Пишет письма, которые открывают</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono text-gray-600 bg-white/5 px-2 py-1 rounded">Продажи</span>
+                    </div>
+
+                    <div class="p-0 w-full bg-[#0d0d0d] font-mono text-xs text-gray-400 overflow-x-auto code-scroll">
+                        <pre class="p-6"><code>Write a 3-step cold DM sequence for potential B2B clients.
+Tone: Professional, intriguing, but casual (not salesy).
+Structure:
+1. Hook (Relevant observation about their business).
+2. Value (Free resource or insight).
+3. Soft CTA (No "hop on a call", just "mind if I send it?").
+...</code></pre>
+                    </div>
+
+                    <div class="p-4 w-full border-t border-white/5 bg-white/5 flex justify-between items-center">
+                        <span class="text-xs text-gray-500"><i class="fa-solid fa-eye mr-2"></i>650 использований</span>
+                        <button onclick="copyToClipboard(this, 'prompt4')"
+                            class="text-xs bg-brand-gray border border-white/20 hover:bg-green-500 hover:text-white px-4 py-2 rounded transition flex items-center">
+                            <i class="fa-regular fa-copy mr-2"></i> Копировать
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Upsell -->
+            <div class="max-w-3xl mx-auto mt-20 text-center glass-card p-10 rounded-3xl relative overflow-hidden">
+                <div class="absolute inset-0 bg-brand-accent/5"></div>
+                <h3 class="font-display text-2xl font-bold mb-4 relative z-10">Это всего 1% от базы знаний клуба</h3>
+                <p class="text-gray-400 mb-8 relative z-10">
+                    Внутри Antigravity Lab лежит более 1000 проверенных промптов, готовых кусков кода и архитектурных
+                    шаблонов. <br>
+                    Перестань изобретать велосипед.
+                </p>
+                <a href="join.html"
+                    class="relative z-10 inline-block bg-brand-accent text-brand-dark px-8 py-4 rounded-xl font-bold hover:scale-105 transition shadow-[0_0_20px_rgba(102,252,241,0.3)]">
+                    Получить доступ ко всему (<span class="line-through opacity-60">10,000₽</span> 4,900₽)
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#050505] pt-20 pb-10 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4 md:mb-0 relative">
+                        <i class="fa-solid fa-cube text-brand-accent text-2xl"></i>
+                        <span class="font-display font-bold text-xl tracking-wider text-white">ANTIGRAVITY <span
+                                class="text-brand-muted">LAB</span></span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6 max-w-sm">
+                        Строим будущее без кода. Я объединяю AI-технологии и предпринимательское мышление, чтобы
+                        создавать продукты за часы, а не месяцы.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://t.me/vladmarketolog" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-accent hover:text-brand-dark transition duration-300">
+                            <i class="fa-brands fa-telegram"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Column 2: Product -->
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-wider">Кому полезно</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="predprinimatel.html" class="hover:text-brand-accent transition">Для
+                                Предпринимателей</a></li>
+                        <li><a href="marketolog.html" class="hover:text-brand-accent transition">Для Маркетологов</a>
+                        </li>
+                        <li><a href="human.html" class="hover:text-brand-accent transition">Хочу создавать сайты</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- Column 3: Resources -->
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-wider">Ресурсы</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="prompts.html" class="hover:text-brand-accent transition">Библиотека промптов</a>
+                        </li>
+                        <li><a href="base.html" class="hover:text-brand-accent transition">База знаний</a></li>
+                        <li><a href="ai.html" class="hover:text-brand-accent transition">AI-инструменты 2026</a></li>
+                        <li><a href="cabinet/login.html"
+                                class="text-brand-accent hover:text-white transition font-bold"><i
+                                    class="fa-solid fa-lock mr-2"></i>Личный Кабинет</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Legal -->
+                <div>
+                    <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-wider">Документы</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="offer.html" class="hover:text-brand-accent transition">Публичная оферта</a></li>
+                        <li><a href="../privacy.html" class="hover:text-brand-accent transition">Политика
+                                конфиденциальности</a></li>
+                        <li><a href="../consent.html" class="hover:text-brand-accent transition">Согласие на
+                                рассылку</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div
+                class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
+                <div class="mb-4 md:mb-0">
+                    &copy; 2026 Antigravity Lab. Все права защищены.
+                </div>
+                <div class="flex items-center space-x-1">
+                    <span>Designed by</span>
+                    <i class="fa-solid fa-robot text-brand-accent mx-1"></i>
+                    <span class="text-gray-400">Artificial Intelligence</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hidden full prompt content for copying -->
+    <script>
+        const prompts = {
+            'prompt1': `You are an expert Senior React Developer and UI/UX Designer.
+Your goal is to write clean, production-ready code.
+
+RULES:
+1. Use TailwindCSS for styling. No custom CSS unless necessary.
+2. Use FontAwesome for icons (CDN is provided).
+3. Do not assume any build steps. Use CDN links for libraries.
+4. Focus on "Apple-style" aesthetics: glassmorphism, clean typography.
+5. Always fully implement the component, do not leave placeholders.
+6. Responsive design is mandatory. Mobile-first approach.
+
+OUTPUT:
+Return a single HTML file with embedded scripts and styles.`,
+
+            'prompt2': `Act as a world-class Direct Response Marketer inspired by Alex Hormozi.
+Your goal is to create an "Irresistible Grand Slam Offer".
+
+FRAMEWORK:
+1. Identify the Dream Outcome.
+2. List all perceived problems/obstacles.
+3. Create solutions for each as "Bonuses".
+4. Add Scarcity (Quantity) and Urgency (Time).
+5. Name the offer using "Power Words".
+6. Create an insane Guarantee (Risk Reversal).
+
+OUTPUT FORMAT:
+- Headline
+- Bullet points of value
+- Price Anchor
+- Bonuses Stack
+- Final Price`,
+
+            'prompt3': `You are a cynical VC investor and experienced product manager.
+I will pitch you a startup idea.
+You must destroy it. Find every hole in logic, market size, and monetization.
+Be harsh but constructive.
+After roasting, suggest 3 "Pivots" that would make the idea actually viable.
+Focus on: Unit Economics, CAC vs LTV, and Competition.`,
+
+            'prompt4': `Write a 3-step cold DM sequence for potential B2B clients.
+Tone: Professional, intriguing, but casual (not salesy).
+Structure:
+1. Hook (Relevant observation about their business).
+2. Value (Free resource or insight).
+3. Soft CTA (No "hop on a call", just "mind if I send it?").
+
+Ensure the message feels hand-written, not automated. Keep it under 280 characters.`
+        };
+
+        function copyToClipboard(button, promptId) {
+            const text = prompts[promptId];
+            navigator.clipboard.writeText(text).then(() => {
+                const originalHtml = button.innerHTML;
+                button.innerHTML = '<i class="fa-solid fa-check mr-2"></i> Скопировано!';
+                button.classList.add('bg-green-500', 'text-white', 'border-transparent');
+
+                setTimeout(() => {
+                    button.innerHTML = originalHtml;
+                    button.classList.remove('bg-green-500', 'text-white', 'border-transparent');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+
+</html>
